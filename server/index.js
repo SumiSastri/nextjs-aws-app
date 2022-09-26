@@ -2,10 +2,10 @@ const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-const port = process.env.PORT || 4000;
 const helmet = require('helmet');
 const colors = require('colors');
+const schema = require ('./data/graphQL-schemas/schema')
+const port = process.env.PORT || 4000;
 
 // intialise methods
 const app = express();
@@ -15,7 +15,7 @@ app.use(helmet({
 }));
 // use the grapqlHTTP library methods
 app.use('/graphql', graphqlHTTP({
-  // schema,
+  schema,
   // if environment changes to production this changes to false
   graphiql: true
 }));
