@@ -1,0 +1,32 @@
+{
+  "name": "nextjs-aws-app",
+  "version": "1.0.0",
+  "description": "fullstack-mengg-stack",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SumiSastri/nextjs-aws-app.git"
+  },
+  "author": "sumi-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SumiSastri/nextjs-aws-app/issues"
+  },
+  "homepage": "https://github.com/SumiSastri/nextjs-aws-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.6.0",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.6.2"
+  }
+}
