@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const colors = require('colors');
-const schema = require ('./data/graphQL-schemas/schema')
+require('dotenv').config();
 const port = process.env.PORT || 4000;
+const MONGO_URI = process.env.MONGO_URI
+
+const schema = require ('./data/graphQL-schemas/schema')
 
 // intialise methods
 const app = express();
@@ -22,4 +25,12 @@ app.use('/graphql', graphqlHTTP({
 
 
 // connect to db and server
-app.listen(4000, () => console.log(`NEXTJS-AWS-APP: Express server connected on port ${port}`));
+mongoose.connect(MONGO_URI, 
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }) .then(() => console.log('SUCCESS: MongoDB Connected...'.cyan.underline.bold))
+  .catch(err => console.log(err, "DB CHECK: Not connected Check cloud connection, password, IP address".red.underline.bold));
+
+
+app.listen(4000, () => console.log(`NEXTJS-AWS-APP: Express server connected on port ${port}`.green.underline.bold));

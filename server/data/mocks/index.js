@@ -1,4 +1,4 @@
-// create relationships -> Users have hobbies and posts related to their hobbies
+// create relationships -> Users have hobbies and posts related to their hobbies -> this is the graph of the data
 // who wrote the post what hobbies does the user have -> connect with userId (one to many entity relationship)
 const usersData = [
   { id: "User1", name: "Janaki", profession: "Butcher", phoneNumber: 123, email: "janaki@email.com", age: 11, createdAt: Date.now() },
@@ -8,10 +8,11 @@ const usersData = [
 ]
 
 const hobbiesData = [
-  { id: "Hobby1", title: "Cooking", description: "Barbecues and Grills", createdAt: Date.now() },
-  { id: "Hobby2", title: "Baking", description: "Breads and sweets baking", createdAt: Date.now() },
-  { id: "Hobby3", title: "Decorating", description: "Home decorations", createdAt: Date.now() },
-  { id: "Hobby4", title: "Fishing", description: "Fresh water fly fishing", createdAt: Date.now() },
+  { id: "Hobby1", title: "Cooking", description: "Barbecues and Grills", createdAt: Date.now(), userId: "User1" },
+  { id: "Hobby2", title: "Baking", description: "Breads and sweets baking", createdAt: Date.now(), userId: "User2" },
+  { id: "Hobby3", title: "Decorating", description: "Home decorations", createdAt: Date.now(), userId: "User3" },
+  { id: "Hobby4", title: "Fishing", description: "Fresh water fly fishing", createdAt: Date.now(), userId: "User4" },
+  { id: "Hobby5", title: "Decorating", description: "Home decorations", createdAt: Date.now(), userId: "User3" },
 ]
 
 const postsData = [
@@ -26,3 +27,4 @@ const postsData = [
   { id: "Post10", post: "Lorem ipsum decorating 10.... ", comment: "Candle making is an art", description: "Decorating posts", createdAt: Date.now(), userId: "User3" },
   { id: "Post11", post: "Lorem ipsum decorating 11.... ", comment: "Scented candles need good quantities of quality scent mixed", description: "Decorating posts", createdAt: Date.now(), userId: "User3" },
   { id: "Post4", post: "Lorem ipsum fishing 4.... ", comment: "Fishing in fresh water is quiet and requires patience", description: "Fishing posts", createdAt: Date.now(), userId: "User4" },
+]
