@@ -7,7 +7,8 @@ const {
   GraphQLInt,
   GraphQLSchema,
   GraphQLID,
-  GraphQLList
+  GraphQLList,
+  GraphQLNonNull,
 } = graphql
 
 // create relationships -> Users have hobbies and posts related to their hobbies -> this is the graph of the data
@@ -54,24 +55,24 @@ const UserType = new GraphQLObjectType({
     age: { type: GraphQLInt },
 
     // one to many relationship - what are the list/ array of posts related to one userId
-    posts: { 
+    posts: {
       type: new GraphQLList(PostType),
       resolve(parent, args) {
         // PostType - defines the parent of the list
-        return _.filter(postsData, { 
+        return _.filter(postsData, {
           userId: parent.id
-         })
-      } 
+        })
+      }
     },
-        // one to many relationship - what are the list/ array of hobbies related to one userId
-        hobbies: { 
-          type: new GraphQLList(HobbyType),
-          resolve(parent, args) {
-            return _.filter(hobbiesData, { 
-              userId: parent.id
-             })
-          }
-        } 
+    // one to many relationship - what are the list/ array of hobbies related to one userId
+    hobbies: {
+      type: new GraphQLList(HobbyType),
+      resolve(parent, args) {
+        return _.filter(hobbiesData, {
+          userId: parent.id
+        })
+      }
+    }
 
   })
 })
@@ -84,7 +85,7 @@ const HobbyType = new GraphQLObjectType({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     description: { type: GraphQLString },
-     // within the type we are querying the usersId to find out what their hobby is
+    // within the type we are querying the usersId to find out what their hobby is
     // traversing the graph so resolver is written in the type not the root query
     user: {
       type: UserType,
@@ -99,11 +100,12 @@ const HobbyType = new GraphQLObjectType({
 const PostType = new GraphQLObjectType({
   name: "Post",
   description: "Interesting information and posts ...",
-    // data blueprint of the types and data queried
+  // data blueprint of the types and data queried
   fields: () => ({
     id: { type: GraphQLID },
     post: { type: GraphQLString },
     comment: { type: GraphQLString },
+    description: { type: GraphQLString },
     // within the type we are querying the usersId to find from the backend who wrote the post
     // traversing the graph a graphql resolver is written in the type not the root query
     user: {
@@ -155,9 +157,105 @@ const RootQuery = new GraphQLObjectType({
       },
     },
 
+    // Query all - list/ array
+    users: {
+      type: new GraphQLList(UserType),
+      resolve(parent, args) {
+        return usersData
+      }
+    },
+
+    posts: {
+      type: new GraphQLList(PostType),
+    resolve(parent, args) {
+        return postsData
+      }
+    },
+
+    hobbies: {
+      type: new GraphQLList(HobbyType),
+      resolve(parent, args) {
+        return hobbiesData
+      }
+    }
+
+  },
+});
+
+// Mutate data - to create, update and delete data in backend resources
+const Mutation = new GraphQLObjectType({
+  name: "Mutation",
+  fields: {
+
+    // CREATE
+    createUser: {
+      type: UserType,
+      args: {
+        // id: {type:GraphQLID},
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        profession: { type: new GraphQLNonNull(GraphQLString) },
+        phoneNumber: { type: new GraphQLNonNull(GraphQLInt) },
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        age: { type: new GraphQLNonNull(GraphQLInt) },
+      },
+      resolve(parent, args) {
+        let user = {
+          name: args.name,
+          profession: args.profession,
+          phoneNumber: args.phoneNumber,
+          email: args.email,
+          age: args.age,
+        }
+        return user;
+      },
+    },
+
+    createPost: {
+      type: PostType,
+      args: {
+        // id: {type:GraphQLID},
+        userId: { type: GraphQLID },
+        post: { type: new GraphQLNonNull(GraphQLString) },
+        comment: { type: new GraphQLNonNull(GraphQLString) },
+        description: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve(parent, args) {
+        let post = {
+          id: { type: GraphQLID },
+          post: args.post,
+          comment: args.comment,
+          description: args.description,
+          userId: args.userId,
+        }
+        return post;
+      },
+    },
+
+    createHobby: {
+      type: HobbyType,
+      args: {
+        // id: {type:GraphQLID},
+        userId: { type: GraphQLID },
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        description: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve(parent, args) {
+        let hobby = {
+          title: args.title,
+          description: args.description,
+          userId: args.userId,
+        }
+        return hobby;
+      },
+    },
+
+    // TO DO: ADD MUTUTATIONS ONCE DATA MOVED INTO DB
+    // DELETE
+    // UPDATE
   },
 });
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation: Mutation,
 });
