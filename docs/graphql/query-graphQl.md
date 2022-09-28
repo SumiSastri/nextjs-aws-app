@@ -81,4 +81,7 @@ const RootQuery = new GraphQLObjectType({
   });
 ```
 
-Once this is done and tested with hard coded data you can move to the next stage and add transfer the mocks to a back-end resource. This app will use mongo-db and mongoose as an ORM.
+Once this is done and tested with hard coded data you can also create relationships between the data entities.
+
+Define which data entitites you need a one-to-one and one-to-many relationships and then create those relationships and query them in graphql-express server.
+
