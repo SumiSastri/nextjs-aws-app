@@ -22,7 +22,7 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 
-// mongoose.connect(MONGO_URI,  
+mongoose.connect(MONGO_URI,  
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

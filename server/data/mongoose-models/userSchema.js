@@ -12,6 +12,7 @@ const userSchema = new Schema({
   // createdAt: String
 });
 
-// mongoose model/collection called User based on the new Userschema it references 
+// mongoose model/collection called User based on the new UserSchema it references
+// this new UserSchema is imported as User in the graphQL schema to reference the model
 module.exports = model('User', userSchema);
 // module.exports = mongoose.model('User', userSchema);

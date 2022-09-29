@@ -10,6 +10,12 @@ const {
   GraphQLNonNull,
 } = graphql
 
+const User = require("../mongoose-models/userSchema");
+const Post = require("../mongoose-models/postSchema");
+const Hobby = require("../mongoose-models/hobbySchema");
+
+// REPLACE lodash methods ._find and ._filter with mongoose methods 
+// findById(parent.fieldId)/ Schema.find({});
 
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -23,10 +29,13 @@ const UserType = new GraphQLObjectType({
     age: { type: GraphQLInt },
     posts: {
       type: new GraphQLList(PostType),
-      resolve(parent, args) {
-        return _.filter(postsData, {
-          userId: parent.id
-        })
+      // resolve(parent, args) {
+      //   return _.filter(postsData, {
+      //     userId: parent.id
+      //   })
+      // }
+      resolve(parent,args) {
+        findById(parent.userId)
       }
     },
     hobbies: {
@@ -135,6 +144,9 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+
+// REPLACE lodash methods ._find and ._filter with mongoose methods 
+// findById(parent.fieldId)/ Schema.find({});
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
@@ -150,15 +162,18 @@ const Mutation = new GraphQLObjectType({
         email: { type: new GraphQLNonNull(GraphQLString) },
         age: { type: new GraphQLNonNull(GraphQLInt) },
       },
+
       resolve(parent, args) {
-        let user = {
+        // the mongoose model is referenced and invoked here
+        let user = User ({
           name: args.name,
           profession: args.profession,
           phoneNumber: args.phoneNumber,
           email: args.email,
           age: args.age,
-        }
-        return user;
+        })
+        // mongoose method
+        return user.save();
       },
     },
 
@@ -172,14 +187,14 @@ const Mutation = new GraphQLObjectType({
         description: { type: new GraphQLNonNull(GraphQLString) },
       },
       resolve(parent, args) {
-        let post = {
+        let post = Post ({
           id: { type: GraphQLID },
           post: args.post,
           comment: args.comment,
           description: args.description,
           userId: args.userId,
-        }
-        return post;
+        })
+        return post.save();
       },
     },
 
@@ -192,12 +207,12 @@ const Mutation = new GraphQLObjectType({
         description: { type: new GraphQLNonNull(GraphQLString) },
       },
       resolve(parent, args) {
-        let hobby = {
+        let hobby = Hobby({
           title: args.title,
           description: args.description,
           userId: args.userId,
-        }
-        return hobby;
+        })
+        return hobby.save();
       },
     },
 
