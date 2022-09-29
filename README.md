@@ -7,7 +7,7 @@ __Server__
 - `npm init` initialise with node
 - add `.gitignore` file and server side folde
 - `npm install --y` install node modules
-- `npm install express mongoose helmet cors dotenv colors nodemon graphql express-graphql lodash` server-side dependencies
+- `npm install express mongoose helmet cors dotenv colors nodemon graphql express-graphql lodash body-parser express-router` server-side dependencies
 
 __MongoDB__
 
