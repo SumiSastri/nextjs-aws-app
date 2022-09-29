@@ -140,13 +140,12 @@ const RootQuery = new GraphQLObjectType({
       }
     },
 
-
   },
 });
 
 
-// REPLACE lodash methods ._find and ._filter with mongoose methods 
-// findById(parent.fieldId)/ Schema.find({});
+// import and reference the mongoose model use the .save() method for create mutation
+// createUser on graphql server - check db to ensure data dropped
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {

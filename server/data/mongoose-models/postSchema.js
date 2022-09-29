@@ -1,10 +1,11 @@
 const { model, Schema } = require('mongoose');
 
+// naming convention must match the graphql naming convention
 const postSchema = new Schema({
-  posts: String,
-  comments: String,
+  post: String,
+  comment: String,
   description: String,
-  // createdAt: String,
+  userId:String,
 });
 
 module.exports = model('Post', postSchema);
