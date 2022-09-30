@@ -14,10 +14,9 @@ const User = require("../mongoose-models/userSchema");
 const Post = require("../mongoose-models/postSchema");
 const Hobby = require("../mongoose-models/hobbySchema");
 
-// REPLACE lodash methods ._find and ._filter 
-// USE resolver query methods with the mongoose ORM
-// Schema.findById({dataId: parent.id})/ Schema.find({});
+// REPLACE lodash methods ._find and ._filter with mongoose methods
 
+// TYPES: return Schema.find({dataId: parent.id}) &&  return Schema.findById(parent.id) 
 const UserType = new GraphQLObjectType({
   name: "User",
   description: "Documentation for user...",
@@ -28,7 +27,7 @@ const UserType = new GraphQLObjectType({
     phoneNumber: { type: GraphQLInt },
     email: { type: GraphQLString },
     age: { type: GraphQLInt },
-    
+    // user's posts
     posts: {
       type: new GraphQLList(PostType),
       // resolve(parent, args) {
@@ -36,26 +35,21 @@ const UserType = new GraphQLObjectType({
       //     userId: parent.id
       //   })
       // }
-
       resolve(parent,args) {
-        Post.findById({userId:parent.userId})
+        return Post.find({userId: parent.id})
       }
     },
+       // user's hobbies
     hobbies: {
       type: new GraphQLList(HobbyType),
-      // resolve(parent, args) {
-      //   return _.filter(hobbiesData, {
-      //     userId: parent.id
-      //   })
-      // }
       resolve(parent,args) {
-        Hobby.findById({userId:parent.userId})
+        return Hobby.find({userId: parent.id})
       }    
     }
-
   })
 })
 
+// All hobbies
 const HobbyType = new GraphQLObjectType({
   name: "Hobby",
   description: "Hobbies and interests ...",
@@ -67,14 +61,13 @@ const HobbyType = new GraphQLObjectType({
       type: UserType,
       // resolve(parent, args) {
       //   return _.find(usersData, { id: parent.userId })
-
       resolve(parent,args) {
-        User.findById({userId:parent.userId})
+        return User.findById(parent.id)
       }
     },
   })
 })
-
+// All posts
 const PostType = new GraphQLObjectType({
   name: "Post",
   description: "Interesting information and posts ...",
@@ -85,28 +78,28 @@ const PostType = new GraphQLObjectType({
     description: { type: GraphQLString },
     user: {
       type: UserType,
-      // resolve(parent, args) {
-      //   return _.find(usersData, { id: parent.userId })
       resolve(parent,args) {
-        User.findById({userId:parent.userId})
+        return User.findById(parent.id)
       }
     },
   })
 })
 
+// QUERIES: return Schema.findById(args.id)/ return Schema.find({}); 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   description: "Description",
   fields: {
-    // User by Id
+    // query by Id
     user: {
       type: UserType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         // return users data   
-        return _.find(usersData,
-          { id: args.id }
-        )
+        // return _.find(usersData,
+        //   { id: args.id }
+        // )
+        return User.findById(args.id);
       },
     },
 
@@ -114,49 +107,43 @@ const RootQuery = new GraphQLObjectType({
       type: HobbyType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return _.find(hobbiesData,
-          { id: args.id }
-        )
+        return Hobbby.findById(args.id);
       },
     },
-
     post: {
       type: PostType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return _.find(postsData,
-          { id: args.id }
-        )
+        return Post.findById(args.id);
       },
     },
-
+// query by Lists
     users: {
       type: new GraphQLList(UserType),
+      // resolve(parent, args) {
+      //   return usersData
+      // }
       resolve(parent, args) {
-        return usersData
+        return User.find({}); 
       }
     },
-
     hobbies: {
       type: new GraphQLList(HobbyType),
       resolve(parent, args) {
-        return hobbiesData
+        return Hobby.find({}); 
       }
     },
-
     posts: {
       type: new GraphQLList(PostType),
     resolve(parent, args) {
-        return postsData
-      }
+      return Post.find({}); 
+    }
     },
 
   },
 });
 
-
-// import and reference the mongoose model use the .save() method for create mutation
-// createUser on graphql server - check db to ensure data dropped
+// MUTATIONS:  Schema.save() method once mongoose model imported
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
@@ -174,7 +161,7 @@ const Mutation = new GraphQLObjectType({
       },
 
       resolve(parent, args) {
-        // the mongoose model is referenced and invoked here
+        // the mongoose model is referenced and invoked here as new user constructor
         let user = User ({
           name: args.name,
           profession: args.profession,
