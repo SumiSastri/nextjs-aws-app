@@ -14,8 +14,9 @@ const User = require("../mongoose-models/userSchema");
 const Post = require("../mongoose-models/postSchema");
 const Hobby = require("../mongoose-models/hobbySchema");
 
-// REPLACE lodash methods ._find and ._filter with mongoose methods 
-// findById(parent.fieldId)/ Schema.find({});
+// REPLACE lodash methods ._find and ._filter 
+// USE resolver query methods with the mongoose ORM
+// Schema.findById({dataId: parent.id})/ Schema.find({});
 
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -27,6 +28,7 @@ const UserType = new GraphQLObjectType({
     phoneNumber: { type: GraphQLInt },
     email: { type: GraphQLString },
     age: { type: GraphQLInt },
+    
     posts: {
       type: new GraphQLList(PostType),
       // resolve(parent, args) {
@@ -34,17 +36,21 @@ const UserType = new GraphQLObjectType({
       //     userId: parent.id
       //   })
       // }
+
       resolve(parent,args) {
-        findById(parent.userId)
+        Post.findById({userId:parent.userId})
       }
     },
     hobbies: {
       type: new GraphQLList(HobbyType),
-      resolve(parent, args) {
-        return _.filter(hobbiesData, {
-          userId: parent.id
-        })
-      }
+      // resolve(parent, args) {
+      //   return _.filter(hobbiesData, {
+      //     userId: parent.id
+      //   })
+      // }
+      resolve(parent,args) {
+        Hobby.findById({userId:parent.userId})
+      }    
     }
 
   })
@@ -59,8 +65,11 @@ const HobbyType = new GraphQLObjectType({
     description: { type: GraphQLString },
     user: {
       type: UserType,
-      resolve(parent, args) {
-        return _.find(usersData, { id: parent.userId })
+      // resolve(parent, args) {
+      //   return _.find(usersData, { id: parent.userId })
+
+      resolve(parent,args) {
+        User.findById({userId:parent.userId})
       }
     },
   })
@@ -76,8 +85,10 @@ const PostType = new GraphQLObjectType({
     description: { type: GraphQLString },
     user: {
       type: UserType,
-      resolve(parent, args) {
-        return _.find(usersData, { id: parent.userId })
+      // resolve(parent, args) {
+      //   return _.find(usersData, { id: parent.userId })
+      resolve(parent,args) {
+        User.findById({userId:parent.userId})
       }
     },
   })
