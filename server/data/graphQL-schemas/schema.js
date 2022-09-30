@@ -27,25 +27,25 @@ const UserType = new GraphQLObjectType({
     phoneNumber: { type: GraphQLInt },
     email: { type: GraphQLString },
     age: { type: GraphQLInt },
-    // user's posts
-    posts: {
-      type: new GraphQLList(PostType),
-      // resolve(parent, args) {
-      //   return _.filter(postsData, {
-      //     userId: parent.id
-      //   })
-      // }
-      resolve(parent,args) {
-        return Post.find({userId: parent.id})
-      }
-    },
        // user's hobbies
     hobbies: {
       type: new GraphQLList(HobbyType),
       resolve(parent,args) {
         return Hobby.find({userId: parent.id})
       }    
-    }
+    },
+      // user's posts
+      posts: {
+        type: new GraphQLList(PostType),
+        // resolve(parent, args) {
+        //   return _.filter(postsData, {
+        //     userId: parent.id
+        //   })
+        // }
+        resolve(parent,args) {
+          return Post.find({userId: parent.id})
+        }
+      }
   })
 })
 
@@ -174,6 +174,24 @@ const Mutation = new GraphQLObjectType({
       },
     },
 
+    createHobby: {
+      type: HobbyType,
+      args: {
+        // id: {type:GraphQLID},
+        userId: { type: GraphQLID },
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        description: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve(parent, args) {
+        let hobby = Hobby({
+          title: args.title,
+          description: args.description,
+          userId: args.userId,
+        })
+        return hobby.save();
+      },
+    },
+
     createPost: {
       type: PostType,
       args: {
@@ -194,28 +212,39 @@ const Mutation = new GraphQLObjectType({
         return post.save();
       },
     },
-
-    createHobby: {
-      type: HobbyType,
-      args: {
-        // id: {type:GraphQLID},
-        userId: { type: GraphQLID },
-        title: { type: new GraphQLNonNull(GraphQLString) },
-        description: { type: new GraphQLNonNull(GraphQLString) },
-      },
-      resolve(parent, args) {
-        let hobby = Hobby({
-          title: args.title,
-          description: args.description,
-          userId: args.userId,
-        })
-        return hobby.save();
-      },
-    },
-
-    // TO DO: ADD MUTATIONS ONCE DATA MOVED INTO DB
-    // DELETE
     // UPDATE
+
+
+
+    // DELETE
+  deleteUser: {
+    type: UserType,
+    args: {
+      id: { type: graphql.GraphQLID },
+    },
+    resolve(parent, args) {
+      return User.findByIdAndRemove(args.id);
+    },
+  },
+  deleteHobby: {
+    type: HobbyType,
+    args: {
+      id: { type: graphql.GraphQLID },
+    },
+    resolve(parent, args) {
+      return Hobby.findByIdAndRemove(args.id);
+    },
+  },
+  deletePost: {
+    type: PostType,
+    args: {
+      id: { type: graphql.GraphQLID },
+    },
+    resolve(parent, args) {
+      return Post.findByIdAndRemove(args.id);
+    },
+  },
+
   },
 });
 
