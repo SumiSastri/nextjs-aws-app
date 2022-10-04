@@ -14,9 +14,7 @@ const User = require("../mongoose-models/userSchema");
 const Post = require("../mongoose-models/postSchema");
 const Hobby = require("../mongoose-models/hobbySchema");
 
-// REPLACE lodash methods ._find and ._filter with mongoose methods
-
-// TYPES: return Schema.find({dataId: parent.id}) &&  return Schema.findById(parent.id)
+// TYPES
 const UserType = new GraphQLObjectType({
   name: "User",
   description: "Documentation for user...",
@@ -37,11 +35,6 @@ const UserType = new GraphQLObjectType({
     // user's posts
     posts: {
       type: new GraphQLList(PostType),
-      // resolve(parent, args) {
-      //   return _.filter(postsData, {
-      //     userId: parent.id
-      //   })
-      // }
       resolve(parent, args) {
         return Post.find({ userId: parent.id });
       },
@@ -85,7 +78,7 @@ const PostType = new GraphQLObjectType({
   }),
 });
 
-// QUERIES: return Schema.findById(args.id)/ return Schema.find({});
+// QUERIES
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   description: "Description",
@@ -95,10 +88,6 @@ const RootQuery = new GraphQLObjectType({
       type: UserType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        // return users data
-        // return _.find(usersData,
-        //   { id: args.id }
-        // )
         return User.findById(args.id);
       },
     },
@@ -120,9 +109,6 @@ const RootQuery = new GraphQLObjectType({
     // query by Lists
     users: {
       type: new GraphQLList(UserType),
-      // resolve(parent, args) {
-      //   return usersData
-      // }
       resolve(parent, args) {
         return User.find({});
       },
@@ -142,7 +128,7 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
-// MUTATIONS:  Schema.save() method once mongoose model imported
+// MUTATIONS
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
@@ -150,7 +136,7 @@ const Mutation = new GraphQLObjectType({
     createUser: {
       type: UserType,
       args: {
-        // id: {type:GraphQLID},
+        id: { type: GraphQLID },
         name: { type: new GraphQLNonNull(GraphQLString) },
         profession: { type: new GraphQLNonNull(GraphQLString) },
         phoneNumber: { type: new GraphQLNonNull(GraphQLInt) },
@@ -159,7 +145,6 @@ const Mutation = new GraphQLObjectType({
       },
 
       resolve(parent, args) {
-        // the mongoose model is referenced and invoked here as new user constructor
         let user = User({
           name: args.name,
           profession: args.profession,
@@ -167,7 +152,6 @@ const Mutation = new GraphQLObjectType({
           email: args.email,
           age: args.age,
         });
-        // mongoose method
         return user.save();
       },
     },
@@ -175,7 +159,7 @@ const Mutation = new GraphQLObjectType({
     createHobby: {
       type: HobbyType,
       args: {
-        // id: {type:GraphQLID},
+        id: { type: GraphQLID },
         userId: { type: GraphQLID },
         title: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
@@ -193,7 +177,7 @@ const Mutation = new GraphQLObjectType({
     createPost: {
       type: PostType,
       args: {
-        // id: {type:GraphQLID},
+        id: { type: GraphQLID },
         userId: { type: GraphQLID },
         post: { type: new GraphQLNonNull(GraphQLString) },
         comment: { type: new GraphQLNonNull(GraphQLString) },
@@ -290,15 +274,12 @@ const Mutation = new GraphQLObjectType({
       args: {
         id: { type: graphql.GraphQLID },
       },
-      // resolve(parent, args) {
-      //   return User.findByIdAndRemove(args.id);
-      // },
       // Method 2:
       resolve(parent, args) {
         let removeUser = User.findByIdAndRemove(args.id).exec()
-      if (!removeUser) {
-        throw new "Error" ()
-      }
+        if (!removeUser) {
+          throw new "Error"()
+        }
         return removeUser
       },
     },
@@ -307,6 +288,7 @@ const Mutation = new GraphQLObjectType({
       args: {
         id: { type: graphql.GraphQLID },
       },
+      // Method 1:
       resolve(parent, args) {
         return Hobby.findByIdAndRemove(args.id);
       },

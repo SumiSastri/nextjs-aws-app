@@ -5,7 +5,7 @@ const postSchema = new Schema({
   post: String,
   comment: String,
   description: String,
-  userId:String,
+  userId: String,
 });
 
 module.exports = model('Post', postSchema);
