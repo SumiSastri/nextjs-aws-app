@@ -13,3 +13,5 @@ Check installation `heroku --version`
 Login to Heroku `heroku login`
 In root create a Procfile - add `web: node index.js` 
 More about the Procfile [https://devcenter.heroku.com/articles/procfile]
+
+- Create a pre-deploy environment (branch) clean up and fix for deploy
