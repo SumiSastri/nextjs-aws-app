@@ -4,7 +4,7 @@ const {mongoose} = require('mongoose');
 const {colors} = require('colors');
 const cors = require('cors');
 const helmet = require('helmet');
-
+// config
 require('dotenv').config();
 const port = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI
