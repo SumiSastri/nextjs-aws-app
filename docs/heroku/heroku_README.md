@@ -15,3 +15,16 @@ In root create a Procfile - add `web: node index.js`
 More about the Procfile [https://devcenter.heroku.com/articles/procfile]
 
 - Create a pre-deploy environment (branch) clean up and fix for deploy
+
+The CLI has slightly different commands to git
+- `git add .` to add
+- `git commit -am "Add something"` to commit - commit message flag is am not just m
+- `git push heroku HEAD:master`  to push
+
+Some debugging articles
+[https://devcenter.heroku.com/articles/node-best-practices#only-git-the-important-bits]
+
+Remove accidently added node modules if .gitignore does not work
+
+- `git rm -r --cached node_modules`
+- `git commit -am 'ignore node_modules'`
