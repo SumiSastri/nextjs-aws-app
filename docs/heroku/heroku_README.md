@@ -28,3 +28,7 @@ Remove accidently added node modules if .gitignore does not work
 
 - `git rm -r --cached node_modules`
 - `git commit -am 'ignore node_modules'`
+
+Debugging:
+
+`heroku logs --tail`

@@ -2,12 +2,12 @@
   "name": "nextjs-aws-app",
   "version": "1.0.0",
   "description": "fullstack-mengg-stack",
-  "main": "index.js",
+  "main": "app.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
