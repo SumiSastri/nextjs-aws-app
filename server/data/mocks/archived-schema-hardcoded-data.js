@@ -19,7 +19,6 @@ const usersData = [
   { id: "User3", name: "Jananani", profession: "Candlestick Maker", phoneNumber: 789, email: "janani@email.com", age: 31, createdAt: Date.now() },
   { id: "User4", name: "Jhanavi", profession: "Fish Monger", phoneNumber: 013, email: "jhanavi@email.com", age: 14, createdAt: Date.now() },
 ]
-
 const hobbiesData = [
   { id: "Hobby1", title: "Cooking", description: "Barbecues and Grills", createdAt: Date.now(), userId: "User1" },
   { id: "Hobby2", title: "Baking", description: "Breads and sweets baking", createdAt: Date.now(), userId: "User2" },
@@ -27,7 +26,6 @@ const hobbiesData = [
   { id: "Hobby4", title: "Fishing", description: "Fresh water fly fishing", createdAt: Date.now(), userId: "User4" },
   { id: "Hobby5", title: "Decorating", description: "Home decorations", createdAt: Date.now(), userId: "User3" },
 ]
-
 const postsData = [
   { id: "Post1", post: "Lorem ipsum cooking 1.... ", comment: "Cooking barbeques and grills is fun and easy", description: "Cooking posts", createdAt: Date.now(), userId: "User1" },
   { id: "Post5", post: "Lorem ipsum cooking 5.... ", comment: "Cooking grilled meat is messy but healthy", description: "Cooking posts", createdAt: Date.now(), userId: "User1" },
@@ -41,7 +39,6 @@ const postsData = [
   { id: "Post11", post: "Lorem ipsum decorating 11.... ", comment: "Scented candles need good quantities of quality scent mixed", description: "Decorating posts", createdAt: Date.now(), userId: "User3" },
   { id: "Post4", post: "Lorem ipsum fishing 4.... ", comment: "Fishing in fresh water is quiet and requires patience", description: "Fishing posts", createdAt: Date.now(), userId: "User4" },
 ]
-
 // Create types - each type is a parent
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -144,7 +141,6 @@ const RootQuery = new GraphQLObjectType({
         )
       },
     },
-
     // Post by Id
     post: {
       type: PostType,
@@ -164,21 +160,18 @@ const RootQuery = new GraphQLObjectType({
         return usersData
       }
     },
-
     hobbies: {
       type: new GraphQLList(HobbyType),
       resolve(parent, args) {
         return hobbiesData
       }
     },
-
     posts: {
       type: new GraphQLList(PostType),
-    resolve(parent, args) {
+      resolve(parent, args) {
         return postsData
       }
     },
-
 
   },
 });
@@ -187,7 +180,6 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
-
     // CREATE
     createUser: {
       type: UserType,
@@ -249,10 +241,6 @@ const Mutation = new GraphQLObjectType({
         return hobby;
       },
     },
-
-    // TO DO: ADD MUTUTATIONS ONCE DATA MOVED INTO DB
-    // DELETE
-    // UPDATE
   },
 });
 

@@ -211,7 +211,7 @@ const Mutation = new GraphQLObjectType({
       },
     },
 
-    // UPDATE
+    // UPDATE - get and set data
     updateUser: {
       type: UserType,
       // same as fields of the schema
@@ -290,8 +290,16 @@ const Mutation = new GraphQLObjectType({
       args: {
         id: { type: graphql.GraphQLID },
       },
+      // resolve(parent, args) {
+      //   return User.findByIdAndRemove(args.id);
+      // },
+      // Method 2:
       resolve(parent, args) {
-        return User.findByIdAndRemove(args.id);
+        let removeUser = User.findByIdAndRemove(args.id).exec()
+      if (!removeUser) {
+        throw new "Error" ()
+      }
+        return removeUser
       },
     },
     deleteHobby: {

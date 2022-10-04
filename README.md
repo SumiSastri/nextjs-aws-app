@@ -9,6 +9,10 @@ __Server__
 - `npm install --y` install node modules
 - `npm install express mongoose helmet cors dotenv colors nodemon graphql express-graphql lodash body-parser express-router` server-side dependencies
 
+__PORT__
+
+URL: [http://localhost:4000/graphql] to test end points
+
 __MongoDB__
 
 - Create an account and then login
@@ -17,12 +21,4 @@ MONGODB: https://account.mongodb.com/account/login
 Connect DB:
 Connect with compass
 
-Details required for account - email, password, org name
-Save - Public key and private key
-Whitelist IP - whatsmyIP (to identify your IP)
 
-CreateDB:
-Create new
-Shared
-
-Save username and password - config in a `dotenv` file
