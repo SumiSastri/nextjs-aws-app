@@ -21,4 +21,12 @@ MONGODB: https://account.mongodb.com/account/login
 Connect DB:
 Connect with compass
 
+__Api endpoint on Heroku__
 
+This repo has been deployed to Heroku and the data is avaliable at
+[https://nextjs-aws-app.herokuapp.com/graphql]
+
+__Graphql Bin__
+Graphql bin is a tool where the API endpoint can be accessed
+
+[https://www.graphqlbin.com/v2/new]

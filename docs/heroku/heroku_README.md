@@ -16,10 +16,24 @@ More about the Procfile [https://devcenter.heroku.com/articles/procfile]
 
 - Create a pre-deploy environment (branch) clean up and fix for deploy
 
-- Add Procfile
-- Change index.js to app.js
-- Change nodemon to node in scripts
-- Change port allocation
+- Add Procfile `web: node server/index.js`
+- Change package json - the worker binds the port and prevents the port-binding error
+
+```
+"scripts": {
+    "start": "npm run build && node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "worker": "node server/index.js",
+  ```
+- Change server to
+
+```
+app.listen(process.env.PORT || 4000, '0.0.0.0', () => {
+  console.log(`NEXT-JS_AWS_APP: Express server connected`.green.underline.bold);
+});
+```
+- Add dotenv config to heroku in settings
 
 
 The CLI has slightly different commands to git
@@ -39,3 +53,6 @@ Remove accidently added node modules if .gitignore does not work
 
 The r-10 error -failing to bind the port
 [https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error]
+
+Stack overflow debugging:
+[https://stackoverflow.com/questions/31092538/heroku-node-js-error-r10-boot-timeout-web-process-failed-to-bind-to-port-w]

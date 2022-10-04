@@ -28,8 +28,7 @@ mongoose.connect(MONGO_URI,
     useUnifiedTopology: true,
   }) .then(() => console.log('SUCCESS: MongoDB Connected...'.cyan.underline.bold))
   .catch(err => console.log(err, "FAIL: Not connected Check cloud connection, password, IP address".red.underline.bold));
-
-// app.listen(4000, () => console.log(`NEXT-JS_AWS_APP: Express server connected on port ${port}`.green.underline.bold));
+  
 app.listen(process.env.PORT || 4000, '0.0.0.0', () => {
   console.log(`NEXT-JS_AWS_APP: Express server connected`.green.underline.bold);
 });
