@@ -16,6 +16,10 @@ More about the Procfile [https://devcenter.heroku.com/articles/procfile]
 
 - Create a pre-deploy environment (branch) clean up and fix for deploy
 
+- Add Procfile
+- Change index.js to app.js
+- Change nodemon to node in scripts
+
 The CLI has slightly different commands to git
 - `git add .` to add
 - `git commit -am "Add something"` to commit - commit message flag is am not just m
