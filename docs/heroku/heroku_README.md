@@ -19,6 +19,8 @@ More about the Procfile [https://devcenter.heroku.com/articles/procfile]
 - Add Procfile
 - Change index.js to app.js
 - Change nodemon to node in scripts
+- Change port allocation
+
 
 The CLI has slightly different commands to git
 - `git add .` to add
@@ -32,7 +34,8 @@ Remove accidently added node modules if .gitignore does not work
 
 - `git rm -r --cached node_modules`
 - `git commit -am 'ignore node_modules'`
+- `heroku logs --tail` check logs
+- `heroku logs -n 200` 
 
-Debugging:
-
-`heroku logs --tail`
+The r-10 error -failing to bind the port
+[https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error]
