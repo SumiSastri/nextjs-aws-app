@@ -21,3 +21,10 @@ Add the ids to the hard-coded mocks so that you can easily test the data in the 
 Test all your changes to the endpoints in the graphql server on local host.
 
 For examples look at the `server/data/mocks` folder where the hard coded data has been archived.
+
+Note: GraphQL also includes a feature called “introspection” which lets new developers on a project discover the data available without requiring knowledge of the backend.
+
+
+AWS AppSync resources on GraphQL
+Overview:
+[https://docs.aws.amazon.com/appsync/latest/devguide/graphql-overview.html]
