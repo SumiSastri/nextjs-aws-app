@@ -25,6 +25,12 @@ Enterprise Support - all of the above + a dedicated technical account manager to
 
 AWS Trusted Advisor - automated tools to check AWS use against best practices - access from AWS console
 
+Deploying and migrating to the AWS cloud
+
+1) Quick Starts (guides)
+2) Partner Network Consulting Partners (3rd party consultants)
+3) Professional Services
+
 Support Response times - different tiers - tied to the support level you pay for
 - General Guidance (24-hours)
 - System Impaired (12-hours)
