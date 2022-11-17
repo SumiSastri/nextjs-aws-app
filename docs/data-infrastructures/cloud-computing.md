@@ -8,6 +8,11 @@ The downside is that someone else is in control of your data. You are reliant on
 
 Therefore choosing a cloud hosting partner can be tricky and shifting from one cloud computing partner to another costly. 
 
-You still need to hire people who are conversant with the cloud computing services to maintain and manage the server space you are hiring.
+Debugging - You still need to hire people who are conversant with the cloud computing services to maintain and manage the server space you are hiring or use a third party tool to debug the code used by the cloud service partner.
+
+Cutting edge quirks - new technologies may not fit your use cases.
 
 Security and compliance can not be outsourced - you still have to have a security policy for your customers data that you collect and store whether on premise or on the cloud.
+
+Figuring out costs - all cloud service providers charge for their services on a tiered basis and you need to understand what capacity you may need and what you need buy - IaaS/ PaaS or SaaS.
+
