@@ -34,6 +34,18 @@ IBM Cloud Functions
 
 Depending on your cloud service provider you will need developers with the skills to write the code that manages this infrastructure. Most popular languages for serverless - Node and Python
 
+__Benefits__
+Deployment workflow unified between infrastructure and code
+
+Remove manual/ human error from manual processes
+
+Easy to set up and scale 
+
+Spin up and destroy environments (save costs) - easy to build a PoC see how it works and destroy it if not fit for purpose
+
+Environments stay in sync - no environment drift and if there is drift detection tools available
+
+
 __Short history the paradigm shift from mainframe servers to serverless__
 
 1950s-1970s - era of mainframes 

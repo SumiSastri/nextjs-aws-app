@@ -11,6 +11,10 @@ AWS CDK - The Big Picture - David Tucker
 (Overview and serverless compute context)
 https://app.pluralsight.com/library/courses/aws-cloud-development-kit-big-picture/table-of-contents
 
+AWS Infrastructure with TypeScript - David Tucker
+(Integration with Fargate  - up to module 4 worth following - after this the course is out of date using v1 methods for the aws-cdk)
+https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents
+
 
 An Introduction to AWS Lamda - Fernando Medina Corey 
 (Python pathway - only intro useful - some concepts covered better by AWS CDK The Big Picture by David Tucket)
