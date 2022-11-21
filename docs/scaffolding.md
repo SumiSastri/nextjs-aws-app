@@ -59,4 +59,15 @@ __AWS CDK__
 
 To configure see the aws-cdk-cloud-development-kit section and the document `aws-cdk-workflow.md`
 
-AWS-CDK -> API-Gateway -> TypeScript Lamda -> DynamoDB
+TypeScript AWS-CDK  - in root
+`npm install @aws-cdk/aws-lambda`
+`npm install @aws-cdk/aws-lambda-nodejs`
+`npm i esbuild` (JavaScript & TypeScript minifier and bundler)
+
+TypeScript Lamda
+`npm install -save-dev "@types/aws-lambda": "^8.10.108"`
+`npm install -save-dev  "aws-sdk": "^2.1258.0" `
+
+API-Gateway
+
+DynamoDB

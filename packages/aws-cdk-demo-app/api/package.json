@@ -1,0 +1,16 @@
+{
+  "name": "service-get-music-items",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.108",
+    "aws-sdk": "^2.1258.0"
+  }
+}

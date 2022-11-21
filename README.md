@@ -40,4 +40,7 @@ This repo has been deployed to Heroku and the data is avaliable at
 # Access to AWS-CDK demo
 
 To configure see docs section - `docs/aws/aws-cdk-cloud-development-kit/aws-cdk-workflow.md`
-To bootstrap cd aws-cdk-demo-app and run `cdk bootstrap --profile your-profile name`
+`cd packages aws-cdk-demo-app` 
+Bootstrap `cdk bootstrap --profile your-profile name`
+Check documentation `cdk docs`
+Deploy `cdk deploy` stacks are bundled and deployed
