@@ -24,3 +24,8 @@ https://app.pluralsight.com/library/courses/aws-developer-introduction-aws-lambd
 AWS Developer: Getting Started - Ryan H Lewis
 (Deeper dive overview of all AWS Cloud Services - not narrow cast like AWS CDK includes overview of AWS Management Console, EC2, Databases(S3, DynamoDb, RDS), IdaAM & Cloud Watch,) - it is a get your feet wet in a bit of everything - too long as a good starting point - dip and dive into modules as per your interest
 https://app.pluralsight.com/library/courses/aws-developer-getting-started/table-of-contents
+
+
+Foobar Tutorials
+TypeScript - AWS CDK demo with V2 - outlines differences between V1 and V2
+[https://www.youtube.com/watch?v=_kf4ajni3Qk&list=PLGyRwGktEFqeXUwkqZtiqkMHaz2b_8ojX&index=2]

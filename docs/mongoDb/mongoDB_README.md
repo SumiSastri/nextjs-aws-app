@@ -22,4 +22,6 @@ MONGO_URI=mongodb+srv://userName:password@cluster0.slip5.mongodb.net/test
 
 Add to your server with the URI and check that the connection works.
 
-You can now create data with the graphQL-express erver
+You can now create data with the graphQL-express server
+
+Note: If you update your user name and password it takes some time for the changes to be applied as the changes are authenticated and deployed you will see this notification until the changes are successfully deployed and configured`We are deploying your changes (current action: configuring MongoDB)`

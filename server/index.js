@@ -22,7 +22,7 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 
-mongoose.connect(MONGO_URI, 
+mongoose.connect(`mongodb+srv://music-app-user:ibzmMOfoHN7Gug2K@cluster0.slip5.mongodb.net/test`, 
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
