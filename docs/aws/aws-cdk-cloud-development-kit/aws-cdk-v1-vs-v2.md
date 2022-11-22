@@ -1,4 +1,4 @@
-V1:
+__V1__
 
 1.  Bundling-minifying package parcel
 2. Imports everything
@@ -39,7 +39,7 @@ const getMusicAssetsFunction = new lamda.NodejsFunction(this, "GetMusicAssetsFun
 });
 ```
 
-V2:
+__V2__
 
 1. Bundling-minifying package esbuild
 2. Imports specific methods 
@@ -74,4 +74,24 @@ new CfnOutput(this, 'MusicItemsExport', {
 `npm install @aws-cdk/aws-lambda-nodejs`
 `npm i esbuild`
 
-7. Config of construct is different
+7. Config of `getApi` construct is different - node runtime is 16, entry changes to code and import of S3 uses commonJS syntax `import S3 = require("aws-sdk/clients/s3"); `
+
+```
+type MusicAssetsAPIProps = {
+    musicAssetsBucket:s3.Bucket
+}
+
+export class MusicAssetsAPI extends Construct {
+    constructor (scope: Construct, id: string, props?: MusicAssetsAPIProps){
+        super (scope, id);
+
+const getMusicAssetsFunction = new Function(this, "GetMusicAssetsFunction", {
+  runtime: Runtime.NODEJS_16_X,
+  code: Code.fromAsset(path.join(__dirname, '../../', "api", 'get-music-assets')),
+  handler: "getMusicAssets",
+});
+    }
+}
+```
+See boilerplate as well - significant differences for v2
+`nextjs-aws-app/packages/aws-cdk-demo-app/api/get-music-assets/index.ts`
