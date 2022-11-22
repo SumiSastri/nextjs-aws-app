@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
+import { App, Tags } from 'aws-cdk-lib';
 import { AwsCdkDemoAppStack } from '../lib/aws-cdk-demo-app-stack';
 
-const app = new cdk.App();
-new AwsCdkDemoAppStack(app, 'AwsCdkDemoAppStack', {
+const app = new App();
+const stack = new AwsCdkDemoAppStack(app, 'AwsCdkDemoAppStack');
+Tags.of(stack).add('App', 'MusicAssetManagement')
+Tags.of(stack).add('Environment', 'Development')
+Tags.of(stack).add('Module', 'Networking', {
+// exclude or include
+})
+
+{
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
@@ -18,4 +25,4 @@ new AwsCdkDemoAppStack(app, 'AwsCdkDemoAppStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-});
+};

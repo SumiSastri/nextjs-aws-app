@@ -1,7 +1,7 @@
 {
   "name": "service-get-music-items",
   "version": "1.0.0",
-  "description": "",
+  "description": "get-http-call",
   "main": "index.ts",
   "scripts": {
     "build": "tsc"

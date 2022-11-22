@@ -3,25 +3,25 @@ import * as S3 from "aws-sdk/clients/s3";
 // import S3 = require("aws-sdk/clients/s3"); common-js import
 
 const s3 = new S3({});
-const bucketName = process.env.MUSIC_ITEMS_BUCKET
+const bucketName = process.env.MUSIC_ASSETS_BUCKET
 
 // boiler plate - get request for HTTP request from the v2 api-gateway in the AWS cloud infrastucture
-export const getMusicItems = async (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2> => {
+export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2> => {
     console.log(`Bucket Name: ${bucketName}`);
   
     try {
-      const { Contents: results } = await s3.listObjects({ Bucket: process.env.MUSIC_ITEMS_BUCKET!}).promise();
+      const { Contents: results } = await s3.listObjects({ Bucket: process.env.MUSIC_ASSETS_BUCKET!}).promise();
       // AWS CDK V2 code
-      // const musicItems = await Promise.all(results!.map(async result => generateSignedURL(result)))
-      // return {
-      //   statusCode: 200,
-      //   body: JSON.stringify(musicItems)
-      // }
-      // AWS CDK V1 code
+      const musicAssets = await Promise.all(results!.map(async result => generateSignedURL(result)))
       return {
         statusCode: 200,
-        body:"SUCCESS: result - musicItems - successfully retrieved"
+        body: JSON.stringify(musicAssets)
       }
+    // AWS CDK V1 code
+    //   return {
+    //     statusCode: 200,
+    //     body:"SUCCESS: result - musicItems - successfully retrieved"
+    //   }
     } catch (error) {
       return {
         statusCode: 500,
@@ -41,3 +41,4 @@ export const getMusicItems = async (event: APIGatewayProxyEventV2, context: Cont
       url: url
     }
   }
+  
