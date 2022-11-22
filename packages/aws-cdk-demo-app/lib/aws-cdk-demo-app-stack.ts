@@ -1,4 +1,4 @@
-import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
+import { CfnOutput, Stack, StackProps, Tags } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import {Bucket, BucketEncryption} from 'aws-cdk-lib/aws-s3';
 // import {AttributeType, Table} from 'aws-cdk-lib/aws-dynamodb';
@@ -24,6 +24,7 @@ new CfnOutput(this, 'MusicAssetsExport', {
   const networkingStack = new Networking(this, 'AWSCDKDemoNetworkingConstruct', {
     maxAzs: 2
   });
+  Tags.of(networkingStack).add("Module", "Networking")
 
 // Stack 2 dynamoDb table constructor
 // const musicItemsTable = new Table (this, 'MusicItemsTable', {

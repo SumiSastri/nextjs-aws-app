@@ -7,9 +7,10 @@ const app = new App();
 const stack = new AwsCdkDemoAppStack(app, 'AwsCdkDemoAppStack');
 Tags.of(stack).add('App', 'MusicAssetManagement')
 Tags.of(stack).add('Environment', 'Development')
-Tags.of(stack).add('Module', 'Networking', {
-// exclude or include
-})
+// As Networking is already a construct see lib stack file
+// Tags.of(stack).add('Module', 'Networking', {
+// // exclude or include resource types
+// })
 
 {
   /* If you don't specify 'env', this stack will be environment-agnostic.
