@@ -5,6 +5,7 @@ import {Bucket, BucketEncryption} from 'aws-cdk-lib/aws-s3';
 // import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 
 import {Networking} from './constructs/networking'
+import {MusicAssetsAPI} from './constructs/musicAssetsAPI'
 export class AwsCdkDemoAppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
@@ -21,10 +22,16 @@ new CfnOutput(this, 'MusicAssetsExport', {
   exportName: 'MusicAssets'
   });
 
+// construct 1 for stack 1
   const networkingStack = new Networking(this, 'AWSCDKDemoNetworkingConstruct', {
     maxAzs: 2
   });
   Tags.of(networkingStack).add("Module", "Networking")
+
+// construct 2 for stack 1
+  const musicAssetsApi = new MusicAssetsAPI(this, 'MusicAssetsAPI', { musicAssetsBucket: bucket });
+
+  Tags.of(musicAssetsApi).add('Module', 'MusicAssetsAPI');
 
 // Stack 2 dynamoDb table constructor
 // const musicItemsTable = new Table (this, 'MusicItemsTable', {

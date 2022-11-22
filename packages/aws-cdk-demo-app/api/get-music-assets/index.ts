@@ -1,6 +1,5 @@
 import { APIGatewayProxyEventV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
-import * as S3 from "aws-sdk/clients/s3";
-// import S3 = require("aws-sdk/clients/s3"); common-js import
+import S3 = require("aws-sdk/clients/s3"); 
 
 const s3 = new S3({});
 const bucketName = process.env.MUSIC_ASSETS_BUCKET
@@ -17,11 +16,6 @@ export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Con
         statusCode: 200,
         body: JSON.stringify(musicAssets)
       }
-    // AWS CDK V1 code
-    //   return {
-    //     statusCode: 200,
-    //     body:"SUCCESS: result - musicItems - successfully retrieved"
-    //   }
     } catch (error) {
       return {
         statusCode: 500,

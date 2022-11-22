@@ -1,5 +1,6 @@
 // no need to import the cdk or install the ec2 package in V2
-import { aws_ec2 as ec2 } from 'aws-cdk-lib';
+import { aws_ec2 as ec2} from 'aws-cdk-lib';
+import { IpAddresses } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
 interface NetworkingProps {
@@ -15,7 +16,8 @@ export class Networking extends Construct {
         super(scope, id);
 
         new ec2.Vpc(this, 'AWSCDKDemoVPC', {
-            cidr: '10.0.0.0/16',
+            // cidr: '10.0.0.0/16', to be deprecated
+            ipAddresses: IpAddresses.cidr('10.0.0.0/16'),
             maxAzs: props.maxAzs,
             // maxAzs:2 -> you can specify a number but using props more dynamic
             subnetConfiguration: [
