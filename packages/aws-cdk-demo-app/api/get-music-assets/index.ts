@@ -1,5 +1,6 @@
 import { APIGatewayProxyEventV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
-import S3 = require("aws-sdk/clients/s3"); 
+import S3 = require("aws-sdk/clients/s3");
+// import { aws_s3 as s3 } from 'aws-cdk-lib';
 
 const s3 = new S3({});
 const bucketName = process.env.MUSIC_ASSETS_BUCKET
@@ -23,7 +24,7 @@ export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Con
       }
     }
   }
-
+// boiler plate
   const generateSignedURL = async (object: S3.Object): Promise<{ filename: string, url: string }> => {
     const url = await s3.getSignedUrlPromise('getObject', {
       Bucket: bucketName,
