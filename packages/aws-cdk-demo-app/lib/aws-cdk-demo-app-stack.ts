@@ -9,7 +9,7 @@ export class AwsCdkDemoAppStack extends Stack {
     super(scope, id, props);
 
 // Code for Stacks 
-// Stack 1 s3 - bucket is a reserved word and this refers to the new Bucket constructor
+// Stack 1 s3 bucket is a reserved word
 const bucket = new Bucket(this, 'MusicAssets', {
 encryption: BucketEncryption.S3_MANAGED
 });
@@ -28,7 +28,8 @@ new CfnOutput(this, 'MusicAssetsExport', {
 
 // construct 2 for stack 1
   const musicAssetsApi = new MusicAssetsAPI(this, 'MusicAssetsAPI', { musicAssetsBucket: bucket });
-
   Tags.of(musicAssetsApi).add('Module', 'MusicAssetsAPI');
+
+  
   }
 }

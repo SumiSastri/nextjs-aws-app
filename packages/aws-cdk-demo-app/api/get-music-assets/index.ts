@@ -1,9 +1,8 @@
 import { APIGatewayProxyEventV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
 import S3 = require("aws-sdk/clients/s3");
-// import { aws_s3 as s3 } from 'aws-cdk-lib';
 
 const s3 = new S3({});
-const bucketName = process.env.MUSIC_ASSETS_BUCKET
+export const bucketName = process.env.MUSIC_ASSETS_BUCKET
 
 // boiler plate - get request for HTTP request from the v2 api-gateway in the AWS cloud infrastucture
 export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2> => {
