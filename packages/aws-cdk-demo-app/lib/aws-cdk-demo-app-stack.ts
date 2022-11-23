@@ -1,11 +1,7 @@
 import { CfnOutput, Stack, StackProps, Tags } from 'aws-cdk-lib';
-
 import { Construct } from 'constructs';
 import {Bucket, BucketEncryption} from 'aws-cdk-lib/aws-s3';
-
-// import {AttributeType, Table} from 'aws-cdk-lib/aws-dynamodb';
-// import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
-
+// constructs
 import {Networking} from './constructs/networking'
 import {MusicAssetsAPI} from './constructs/musicAssetsAPI'
 export class AwsCdkDemoAppStack extends Stack {
@@ -34,28 +30,5 @@ new CfnOutput(this, 'MusicAssetsExport', {
   const musicAssetsApi = new MusicAssetsAPI(this, 'MusicAssetsAPI', { musicAssetsBucket: bucket });
 
   Tags.of(musicAssetsApi).add('Module', 'MusicAssetsAPI');
-
-// Stack 2 dynamoDb table constructor
-// const musicItemsTable = new Table (this, 'MusicItemsTable', {
-//   partitionKey:{
-//     name: 'id',
-//     type: AttributeType.STRING,
-//   },
-//   tableName:'musicItemsTableItems'
-
-// });
-
-// // GRANT DYNAMODB PERMISSIONS CALL LAMDA FUNCTION
-//  musicItemsTable.grantReadWriteData(getMusicItemsLambda);
-
-// Stack 3 API GATEWAY
-// const musicItemsAPIGateway = new RestApi(this, "musicItemsAPIGateway")
-
-// const getMusicItemsAPIGatewayIntegration = new LambdaIntegration(getMusicItemsAPI, {
-//   requestTemplates: { "application/json": '{"statusCode":"200"}'}
-// })
-
-// musicItemsAPIGateway.root.addMethod("GET", getMusicCatalogAPIGatewayIntegration)
-
   }
 }
