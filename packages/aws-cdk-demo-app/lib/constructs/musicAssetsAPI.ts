@@ -9,11 +9,11 @@ export class MusicAssetsAPI extends Construct {
     constructor (scope: Construct, id: string, props?: MusicAssetsAPIProps){
         super (scope, id);
 
-//  LAMBDA for S3 
+//  LAMBDA for S3 - runtime error with props
 const getMusicAssetsFunction = new Function(this, "GetMusicAssetsFunction", {
   runtime: Runtime.NODEJS_16_X,
   code: Code.fromAsset(path.join(__dirname, '../../', "api", 'get-music-assets')),
-  handler: "getMusicAssets",  
+  handler: `getMusicAssets`,  
 //   environment: {
 //     MUSIC_ASSETS_BUCKET: props.musicAssetsBucket.bucketName
 // }

@@ -2,11 +2,12 @@ import { APIGatewayProxyEventV2, Context, APIGatewayProxyStructuredResultV2 } fr
 import S3 = require("aws-sdk/clients/s3");
 
 const s3 = new S3({});
-export const bucketName = process.env.MUSIC_ASSETS_BUCKET
+const bucketName = process.env.MUSIC_ASSETS_BUCKET
 
 // boiler plate - get request for HTTP request from the v2 api-gateway in the AWS cloud infrastucture
 export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2> => {
     console.log(`Bucket Name: ${bucketName}`);
+    console.log(`event: ${event}`);
   
     try {
       const { Contents: results } = await s3.listObjects({ Bucket: process.env.MUSIC_ASSETS_BUCKET!}).promise();
