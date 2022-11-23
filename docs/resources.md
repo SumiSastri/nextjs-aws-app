@@ -12,8 +12,8 @@ AWS CDK - The Big Picture - David Tucker
 https://app.pluralsight.com/library/courses/aws-cloud-development-kit-big-picture/table-of-contents
 
 AWS Infrastructure with TypeScript - David Tucker
-(Integration with Fargate  - up to module 4 worth following - after this the course is out of date using v1 methods for the aws-cdk)
-https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents
+(Integration with Fargate  - up to module 5 worth following - after this the course is out of date using v1 methods for the aws-cdk - however this repo has deployed with v2 see `docs/aws/aws-cdk-cloud-development-kit/aws-cdk-v1-vs-v2.md`)
+[https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents]
 
 
 An Introduction to AWS Lamda - Fernando Medina Corey 
@@ -29,3 +29,6 @@ https://app.pluralsight.com/library/courses/aws-developer-getting-started/table-
 Foobar Tutorials
 TypeScript - AWS CDK demo with V2 - outlines differences between V1 and V2
 [https://www.youtube.com/watch?v=_kf4ajni3Qk&list=PLGyRwGktEFqeXUwkqZtiqkMHaz2b_8ojX&index=2]
+
+
+__Udemy__

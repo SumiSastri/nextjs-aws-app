@@ -44,3 +44,11 @@ To configure see docs section - `docs/aws/aws-cdk-cloud-development-kit/aws-cdk-
 Bootstrap `cdk bootstrap --profile your-profile name`
 Check documentation `cdk docs`
 Deploy `cdk deploy` stacks are bundled and deployed
+
+This section follows the Plural Sight Course 
+
+__AWS Infrastructure with TypeScript - David Tucker__
+[https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents]
+
+__Note__
+(Up to module 5 worth following - after this the course is out of date using v1 methods for the aws-cdk - however this repo has deployed with v2 see `docs/aws/aws-cdk-cloud-development-kit/aws-cdk-v1-vs-v2.md` module 6 deals with Fargate integration)

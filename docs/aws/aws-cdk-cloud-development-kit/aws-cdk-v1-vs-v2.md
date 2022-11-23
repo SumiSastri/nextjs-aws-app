@@ -1,3 +1,5 @@
+Documentation[https://docs.aws.amazon.com/cdk/v2/guide/migrating-v2.html]
+
 __V1__
 
 1.  Bundling-minifying package parcel
