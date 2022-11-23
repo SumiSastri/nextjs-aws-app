@@ -17,7 +17,7 @@ encryption: BucketEncryption.S3_MANAGED
 // cfn (cloud formation network)
 new CfnOutput(this, 'MusicAssetsExport', {
   value: bucket.bucketName,
-  exportName: 'MusicAssets'
+  exportName: 'MusicAssetsBucket'
   });
 
 // construct 1 for stack 1
@@ -30,6 +30,5 @@ new CfnOutput(this, 'MusicAssetsExport', {
   const musicAssetsApi = new MusicAssetsAPI(this, 'MusicAssetsAPI', { musicAssetsBucket: bucket });
   Tags.of(musicAssetsApi).add('Module', 'MusicAssetsAPI');
 
-  
   }
 }
