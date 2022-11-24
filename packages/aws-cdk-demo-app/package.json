@@ -22,6 +22,8 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.51.1-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.51.1-alpha.0",
     "@aws-cdk/aws-s3": "^1.181.0",
     "@aws-sdk/client-s3": "^3.216.0",
     "aws-cdk-lib": "2.50.0",
