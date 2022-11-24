@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import { App, Tags } from 'aws-cdk-lib';
+import { App, Tags, aws_s3 as s3 } from 'aws-cdk-lib';
 import { AwsCdkDemoAppStack } from '../lib/aws-cdk-demo-app-stack';
 
 const app = new App();

@@ -1,6 +1,6 @@
 import { CfnOutput, Stack, StackProps, Tags } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import {Bucket, BucketEncryption, BlockPublicAccess, ObjectOwnership} from 'aws-cdk-lib/aws-s3';
+import {Bucket, BucketEncryption} from 'aws-cdk-lib/aws-s3';
 
 // constructs
 import {Networking} from './constructs/networking'
@@ -12,15 +12,13 @@ export class AwsCdkDemoAppStack extends Stack {
 
 // Code for Stacks 
 // Stack 1 s3 bucket 
-const  musicAssetsBucket = new Bucket(this, 'MusicAssetsBucket', {
+const  bucket = new Bucket(this, 'MusicAssetsBucket', {
 encryption: BucketEncryption.S3_MANAGED,
-// blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
-// objectOwnership: ObjectOwnership.BUCKET_OWNER_ENFORCED,
 });
 
 // cfn (cloud formation network)
 new CfnOutput(this, 'MusicAssetsExport', {
-  value:  musicAssetsBucket.bucketName,
+  value:  bucket.bucketName,
   exportName: 'MusicAssetsBucket'
   });
 
@@ -30,8 +28,12 @@ new CfnOutput(this, 'MusicAssetsExport', {
   });
   Tags.of(networkingStack).add("Module", "Networking")
 
-// construct 2 for stack 1
-  const musicAssetsApi = new MusicAssetsAPI(this, 'MusicAssetsAPI', { musicAssetsBucket });
+// construct 2 for stack 1 - Step 4 add environment variable reference 
+// the props tied to the stack bucket
+  const musicAssetsApi = new MusicAssetsAPI(this, 'MusicAssetsAPI', { 
+    musicAssetsBucketProps: bucket
+  });
+
   Tags.of(musicAssetsApi).add('Module', 'MusicAssetsAPI');
 
   }
