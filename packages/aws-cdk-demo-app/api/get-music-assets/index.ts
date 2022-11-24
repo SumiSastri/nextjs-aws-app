@@ -1,22 +1,28 @@
+import { Callback } from 'aws-lambda';
 import { APIGatewayProxyEventV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
 import S3 = require("aws-sdk/clients/s3");
 
 const s3 = new S3({});
-const bucketName = process.env.MUSIC_ASSETS_BUCKET
+const bucketName = process.env.MUSIC_ASSETS_BUCKET || "MusicAssetsBucket";
 
 // boiler plate - get request for HTTP request from the v2 api-gateway in the AWS cloud infrastucture
-export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2> => {
+export const getMusicAssets = async function (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2>  {
     console.log(`Bucket Name: ${bucketName}`);
-    console.log(`event: ${event}`);
+    console.info("EVENT\n" + JSON.stringify(event, null, 2))
+    console.warn(`EVENT NOT PROCESSED!`)
+    console.log("ENVIRONMENT VARIABLES\n" + JSON.stringify(process.env, null, 2))
   
     try {
       const { Contents: results } = await s3.listObjects({ Bucket: process.env.MUSIC_ASSETS_BUCKET!}).promise();
-      // AWS CDK V2 code
       const musicAssets = await Promise.all(results!.map(async result => generateSignedURL(result)))
       return {
         statusCode: 200,
-        body: JSON.stringify(musicAssets)
+        body: JSON.stringify({
+          input: event,
+          message: `${musicAssets}, Event success`
+        })
       }
+      
     } catch (error) {
       return {
         statusCode: 500,
@@ -36,4 +42,6 @@ export const getMusicAssets = async (event: APIGatewayProxyEventV2, context: Con
       url: url
     }
   }
+
+
   

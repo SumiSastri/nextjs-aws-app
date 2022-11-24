@@ -1,7 +1,7 @@
 {
-  "name": "service-get-music-items",
+  "name": "get-music-assets",
   "version": "1.0.0",
-  "description": "get-http-call",
+  "description": "api-s3",
   "main": "index.ts",
   "scripts": {
     "build": "tsc"
@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.108",
-    "aws-sdk": "^2.1258.0"
+    "@types/aws-lambda": "^8.10.61",
+    "aws-sdk": "^2.742.0",
+    "colors": "^1.4.0"
   }
 }

@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import { App, Tags } from 'aws-cdk-lib';
-// import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { AwsCdkDemoAppStack } from '../lib/aws-cdk-demo-app-stack';
 
 const app = new App();
 const stack = new AwsCdkDemoAppStack(app, 'AwsCdkDemoAppStack');
-// new Bucket(stack, 'MusicAssetsBucket');
 Tags.of(stack).add('App', 'MusicAssetManagement')
 Tags.of(stack).add('Environment', 'Development')
 // As Networking is already a construct see lib stack file

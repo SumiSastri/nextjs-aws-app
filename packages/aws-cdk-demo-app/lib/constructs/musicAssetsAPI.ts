@@ -1,8 +1,10 @@
 import { Construct } from 'constructs';
-import {Function, Runtime, Code } from "aws-cdk-lib/aws-lambda";
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import * as lambda from 'aws-cdk-lib/aws-lambda-nodejs';
 import {Bucket} from 'aws-cdk-lib/aws-s3';
 import * as path from 'path';
-export interface MusicAssetsAPIProps  {
+
+interface MusicAssetsAPIProps  {
     musicAssetsBucket:Bucket,
 }
 export class MusicAssetsAPI extends Construct {
@@ -10,10 +12,11 @@ export class MusicAssetsAPI extends Construct {
         super (scope, id);
 
 //  LAMBDA for S3 - runtime error with props
-const getMusicAssetsFunction = new Function(this, "GetMusicAssetsFunction", {
+const getMusicAssetsFunction = new lambda.NodejsFunction(this, "GetMusicAssetsFunction", {
   runtime: Runtime.NODEJS_16_X,
-  code: Code.fromAsset(path.join(__dirname, '../../', "api", 'get-music-assets')),
-  handler: `getMusicAssets`,  
+  entry:path.join(__dirname, '../../api/get-music-assets/index.ts'),
+  handler: 'getMusicAssets',  
+// //   FIX ME: Why is props undefined?
 //   environment: {
 //     MUSIC_ASSETS_BUCKET: props.musicAssetsBucket.bucketName
 // }

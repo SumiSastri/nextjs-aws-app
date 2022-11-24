@@ -1,9 +1,10 @@
 Documentation[https://docs.aws.amazon.com/cdk/v2/guide/migrating-v2.html]
 
 __V1__
+Pre Dec 2021
 
 1.  Bundling-minifying package parcel
-2. Imports everything
+2. Imports everything and multiple imports of packages
 eg: app entry point in bin folder
 `import * as cdk from 'aws-cdk-lib';`
 3. Need to use the `cdk` object
@@ -44,7 +45,7 @@ const getMusicAssetsFunction = new lamda.NodejsFunction(this, "GetMusicAssetsFun
 __V2__
 
 1. Bundling-minifying package esbuild
-2. Imports specific methods 
+2. Imports specific methods and 1 stable version to install globally
 eg: app entry point in bin folder
 `import { App } from 'aws-cdk-lib';`
 3. Only imported methods used
@@ -95,5 +96,7 @@ const getMusicAssetsFunction = new Function(this, "GetMusicAssetsFunction", {
     }
 }
 ```
+Deprecated - is excluding aws sdk from bundling with es build
+
 See boilerplate as well - significant differences for v2
 `nextjs-aws-app/packages/aws-cdk-demo-app/api/get-music-assets/index.ts`

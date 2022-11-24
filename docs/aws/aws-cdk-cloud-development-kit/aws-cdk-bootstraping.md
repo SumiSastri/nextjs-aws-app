@@ -6,3 +6,5 @@ eg:
 - Fargate
 - AppSync
 - Cloud Formation
+
+- By running the command `cdk bootstrap()` creates a CDK Tool Kit Cloud Formation Stack along with an S3 Bucket to store all Assets in an AWS Account. It is required if any asset more than 50KB is required for the Cloud Formation templates

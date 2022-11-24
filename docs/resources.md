@@ -31,4 +31,12 @@ TypeScript - AWS CDK demo with V2 - outlines differences between V1 and V2
 [https://www.youtube.com/watch?v=_kf4ajni3Qk&list=PLGyRwGktEFqeXUwkqZtiqkMHaz2b_8ojX&index=2]
 
 
-__Udemy__
+__You Tube__
+
+Free Code Camp CDK Crash Course - Matt
+https://www.youtube.com/watch?v=T-H4nJQyMig&t=381s
+
+
+__Other resources__
+The CDK book
+https://thecdkbook.com/

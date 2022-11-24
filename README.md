@@ -44,9 +44,10 @@ To configure see docs section - `docs/aws/aws-cdk-cloud-development-kit/aws-cdk-
 Bootstrap `cdk bootstrap --profile your-profile name`
 Check documentation `cdk docs`
 Deploy `cdk deploy` stacks are bundled and deployed
+Use `npm run watch` in a separate terminal to watch code compile and catch bugs early
+Check code diff `cdk diff`
 
 This section follows the Plural Sight Course 
-
 __AWS Infrastructure with TypeScript - David Tucker__
 [https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents]
 
