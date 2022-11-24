@@ -1,4 +1,8 @@
+
+Documentation for AWS CDK 1.x: [https://docs.aws.amazon.com/cdk/api/v1/docs/aws-construct-library.html]
 Documentation[https://docs.aws.amazon.com/cdk/v2/guide/migrating-v2.html]
+Documentation for AWS CDK 2.x: [https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html]
+Trouble shooting Documentation: [https://docs.aws.amazon.com/cdk/v2/guide/troubleshooting.html]
 
 __V1__
 Pre Dec 2021
