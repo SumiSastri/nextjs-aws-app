@@ -1,5 +1,6 @@
 import { APIGatewayProxyEventV2, Context, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
 import S3 = require("aws-sdk/clients/s3");
+// import { aws_s3 as s3 } from 'aws-cdk-lib';
 
 const s3 = new S3({});
 const bucketName = process.env.MUSIC_ASSETS_BUCKET;
@@ -13,7 +14,9 @@ export const getMusicAssets = async function (event: APIGatewayProxyEventV2, con
   
     try {
       const { Contents: results } = await s3.listObjects({ Bucket: process.env.MUSIC_ASSETS_BUCKET!}).promise();
+      // list of files from the music assets folder with the s3.listObjects method
       const musicAssets = await Promise.all(results!.map(async result => generateSignedURL(result)))
+      console.log(musicAssets)
       return {
         statusCode: 200,
         body: JSON.stringify({
@@ -29,7 +32,8 @@ export const getMusicAssets = async function (event: APIGatewayProxyEventV2, con
       }
     }
   }
-// boiler plate
+// boiler plate to generate a signed url - based on the result of the s3.listObjects
+// access denied error until you write the IdaaM code (access and Identity management)
   const generateSignedURL = async (object: S3.Object): Promise<{ filename: string, url: string }> => {
     const url = await s3.getSignedUrlPromise('getObject', {
       Bucket: bucketName,
