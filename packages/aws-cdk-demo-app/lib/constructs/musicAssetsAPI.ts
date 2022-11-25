@@ -7,7 +7,7 @@ import * as path from 'path';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as apig from '@aws-cdk/aws-apigatewayv2-alpha'
 import * as apiIntegration from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
-// import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+
 interface MusicAssetsAPIProps  {
     musicAssetsBucketProps:s3.IBucket,
 }

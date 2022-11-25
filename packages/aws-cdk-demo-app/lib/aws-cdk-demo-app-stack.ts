@@ -15,7 +15,6 @@ export class AwsCdkDemoAppStack extends Stack {
 // CODE FOR STACK
 // s3 bucket 
 const  musicItemsBucket = new Bucket(this, 'MusicItemsBucket', {
-bucketName: 'music-items-bucket',
 encryption: BucketEncryption.S3_MANAGED,
 });
 
@@ -47,7 +46,6 @@ new CfnOutput(this, 'MusicAssetsExport', {
   });
 
   Tags.of(musicAssetsApi).add('Module', 'MusicAssetsAPI');
-
 
   }
 }

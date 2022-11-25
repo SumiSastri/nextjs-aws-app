@@ -7,7 +7,6 @@ interface NetworkingProps {
     // maximum number of availability zones
     maxAzs: number;
 }
-
 export class Networking extends Construct {
 
     public readonly vpc:ec2.IVpc;
