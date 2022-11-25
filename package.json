@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/SumiSastri/nextjs-aws-app#readme",
   "dependencies": {
-    "@aws-cdk/aws-lambda": "^1.181.0",
+    "@aws-cdk/aws-lambda": "1.181.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.181.0",
     "aws-cdk": "^2.0.0",
     "body-parser": "^1.20.0",

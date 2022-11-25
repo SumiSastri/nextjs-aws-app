@@ -38,6 +38,8 @@ This repo has been deployed to Heroku and the data is avaliable at
 [https://nextjs-aws-app.herokuapp.com/graphql]
 
 # Access to AWS-CDK demo
+Deploy on AWS 
+Postman: [https://l99l6wyw28.execute-api.eu-west-2.amazonaws.com/getMusicAssets]
 
 To configure see docs section - `docs/aws/aws-cdk-cloud-development-kit/aws-cdk-workflow.md`
 `cd packages aws-cdk-demo-app` 
