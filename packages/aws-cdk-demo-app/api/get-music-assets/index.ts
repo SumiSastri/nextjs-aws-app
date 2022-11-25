@@ -9,7 +9,7 @@ const bucketName = process.env.MUSIC_ASSETS_BUCKET;
 export const getMusicAssets = async function (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyStructuredResultV2>  {
     console.log(`Bucket Name: ${bucketName}`);
     console.info("EVENT\n" + JSON.stringify(event, null, 2))
-    console.warn(`EVENT NOT PROCESSED!`)
+    // console.warn(`EVENT NOT PROCESSED!`)
     console.log("ENVIRONMENT VARIABLES\n" + JSON.stringify(process.env, null, 2))
   
     try {
@@ -32,8 +32,7 @@ export const getMusicAssets = async function (event: APIGatewayProxyEventV2, con
       }
     }
   }
-// boiler plate to generate a signed url - based on the result of the s3.listObjects
-// access denied error until you write the IdaaM code (access and Identity management)
+
   const generateSignedURL = async (object: S3.Object): Promise<{ filename: string, url: string }> => {
     const url = await s3.getSignedUrlPromise('getObject', {
       Bucket: bucketName,

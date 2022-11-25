@@ -4,7 +4,6 @@ import {Bucket, BucketEncryption} from 'aws-cdk-lib/aws-s3';
 import * as s3Deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as path from 'path';
 
-
 // constructs
 import {Networking} from './constructs/networking'
 import {MusicAssetsAPI} from './constructs/musicAssetsAPI'
@@ -15,7 +14,8 @@ export class AwsCdkDemoAppStack extends Stack {
 
 // CODE FOR STACK
 // s3 bucket 
-const  musicItemsBucket = new Bucket(this, 'MusicAssetsBucket', {
+const  musicItemsBucket = new Bucket(this, 'MusicItemsBucket', {
+bucketName: 'music-items-bucket',
 encryption: BucketEncryption.S3_MANAGED,
 });
 
