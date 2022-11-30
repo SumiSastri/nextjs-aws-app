@@ -9,7 +9,7 @@ Amplify.configure({ ...awsmobile, ssr: true })
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Authenticator>
+    <Authenticator className="d-flex flex-row justify-content-end col-md-6 ">
       <Component {...pageProps} />
     </Authenticator>
   )
