@@ -94,3 +94,26 @@ TypeScript AWS-CDK - in root
 TypeScript Lamda
 `npm install -save-dev "@types/aws-lambda": "^8.10.108"`
 `npm install -save-dev "aws-sdk": "^2.1258.0" `
+
+**AWS Amplify**
+
+Docs
+[https://docs.amplify.aws/cli/start/install/#install-the-amplify-cli] &
+[https://docs.amplify.aws/cli/start/install/#option-2-follow-the-instructions]
+
+1. Installation
+   Install the amplify cli globally
+   `npm install -g @aws-amplify/cli`
+
+2. Configuration
+   In (computer) root run
+   `amplify configure` - creates a new AWS-IAM user
+   Go through the configure steps and create a user on the AWS Amplify service in your AWS online account
+
+3. Install ui library `npm install aws-amplify @aws-amplify/ui-react` in root of your project
+
+4. Initialise project - go to the root of your app and run `amplify init` the command auto-detects settings and sets up the project with defaults. If you have set up a IAM profile use the configuration
+5. Packages required by Amplify will be installed in your project and a directory called amplify will be installed in your app
+6. Run `amplify add auth` to get the pre-built ui
+7. Run `amplify status` for changes
+8. Deploy changes `amplify push` this creates a cognito user pool in the cloud
