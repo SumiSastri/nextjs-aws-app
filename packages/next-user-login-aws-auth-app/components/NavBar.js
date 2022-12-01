@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Auth } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 
-const Navbar = () => {
+const NavBar = () => {
   // CALL BACK FOR SIGN OUT BUTTON
-  const signOutHandler = async () => {
+  const handleSignOutSubmit = async () => {
     try {
       await Auth.signOut();
     } catch (error) {
@@ -35,7 +35,7 @@ const Navbar = () => {
             <button
               className='btn btn-danger'
               type='button'
-              onClick={signOutHandler}
+              onClick={handleSignOutSubmit}
             >
               Sign Out
             </button>
@@ -46,4 +46,4 @@ const Navbar = () => {
   );
 };
 
-export default withAuthenticator(Navbar);
+export default withAuthenticator(NavBar);

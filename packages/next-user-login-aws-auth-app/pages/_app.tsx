@@ -13,7 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Authenticator className="d-flex flex-row justify-content-center col-md-6 mt-5">
       <Component {...pageProps} />
-
     </Authenticator>
   )
 }

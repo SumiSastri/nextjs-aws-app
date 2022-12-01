@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import Navbar from "../components/NavBar"
+import NavBar from "../components/NavBar"
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>Nextjs with AWS Auth App</title>
       </Head>
-      <Navbar />
+      <NavBar />
       <div >
         <h1 className="d-flex flex-row justify-content-center mt-5 p-5">
           NextJS App with AWS Auth
