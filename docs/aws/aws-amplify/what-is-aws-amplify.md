@@ -1,5 +1,7 @@
 Amplify allows developers to quickly spin up a backend - whether using a REST or GraphQL API.
 
+AWS You Tube Video[https://www.youtube.com/watch?v=7ekxPmVNV8k&t=11s]
+
 It is a platform that includes a plethora of tools and services that enable users to connect apps, deploy static web apps, manage and create applications for AWS Cloud.
 
 It provides authentication, analytics, storage, caching, ui-components and API-creation/management.
