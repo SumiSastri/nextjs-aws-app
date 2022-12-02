@@ -2,6 +2,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+// user by ID
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
@@ -15,6 +16,7 @@ export const getUser = /* GraphQL */ `
     }
   }
 `;
+// ALL users
 export const listUsers = /* GraphQL */ `
   query ListUsers(
     $filter: ModelUserFilterInput
