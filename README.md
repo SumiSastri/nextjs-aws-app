@@ -17,7 +17,7 @@ Pre-requisistes
 Clone [https://github.com/SumiSastri/nextjs-aws-app.git]
 Install dependencies `npm init -y`
 Seed data `server/data/mocks` to populate your MongoDb database
-Spin up express server - cd server and `node index.js`
+Spin up express server - `cd server` and `node index.js`
 Set up your MongoDb access - you need to be logged on to your MongoCloud
 Quick link to login [https://account.mongodb.com/account/login]
 Create a dotenv file - sample config
@@ -40,6 +40,12 @@ Run build in root `npm run build`
 
 This repo has been deployed to Heroku and the data is avaliable at
 [https://nextjs-aws-app.herokuapp.com/graphql]
+
+# Access to NextJs-AWS
+
+If you have cloned the app run `npx lerna bootstrap` in root to ensure you have node modules installed
+
+`cd packages/next-user-login-aws` and spin up front end `npm serve dev`
 
 # Access to AWS-CDK demo
 

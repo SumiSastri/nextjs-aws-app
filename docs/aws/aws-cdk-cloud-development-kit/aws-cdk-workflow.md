@@ -1,13 +1,14 @@
-__AWS CDK Workflow__
+**AWS CDK Workflow**
 
-__INSTALL__
+**INSTALL**
 
 1. Install the AWS CDK with node package manager globally `npm install aws-cdk -g`
 2. Create a directory for the project `aws-cdk-demo-app`
 3. Check you have installed the library `cdk -version`
-2. Initialise the directory with the cdk library and the language you are going to use `cdk init app --language=typescript` 
+4. Initialise the directory with the cdk library and the language you are going to use `cdk init app --language=typescript`
 
 The package ships with
+
 - node modules preinstalled
 - a binary (bin) folder it is the entry point for the application
 - a lib folder
@@ -16,14 +17,14 @@ The package ships with
 - in addition to the `package.json` file there is a `cdk.json` file (review both to familiarise yourself with what is in it)
 - for typescript the `tsconfig.json` file
 
-__Useful CLI commands__
+**Useful CLI commands**
 
 check documentation `cdk docs`
 bootstrap local code to cloud services`cdk bootstrap`
 list all stacks `cdk list`
 check local with deploy `cdk diff`
 
-__CONFIGURE__
+**CONFIGURE**
 
 In the project `cd aws-cdk-demo-app`
 Configure AWS to sync local to AWS Cloud services `aws configure --profile your-profile-name`
@@ -44,18 +45,19 @@ To change details if you have got them wrong - see instructions on aws configure
 - change output format `aws configure set output json`/ `aws configure set output text`
 - change region name - `aws configure set region us-west-2`
 
-__BOOTSTRAP__
+**BOOTSTRAP**
 
-Once configured you can bootstrap or connect the local machine to the AWS cloud services 
+Once configured you can bootstrap or connect the local machine to the AWS cloud services
 `cdk bootstrap --profile your-profile name`
 
 You will get the success message
+
 ```
 CDKToolkit: creating CloudFormation changeset...
  ✅  Environment aws://992722868670/eu-west-2 bootstrapped.
 ```
 
-__SYNTH__
+**SYNTH**
 
 In root of app
 `mkdir templates`
@@ -63,9 +65,9 @@ In root of app
 
 Debugging synth: AssertDescription: CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.
 
-__DEPLOY__
+**DEPLOY**
 
-After running the synth command if it is successful  you can run
+After running the synth command if it is successful you can run
 
 `cdk deploy` add the name if you have several stacks
 
@@ -98,14 +100,15 @@ arn:aws:cloudformation:eu-west-2:992722868670:stack/AwsCdkDemoAppStack/9119f1a0-
 ✨  Total time: 45.81s
 ```
 
-__DESTROY__
+**DESTROY**
 
 You can destroy the deployed CDK anytime and redeploy it using the steps above. The destroy does not destroy the code base on your local - only the synth files and the deploy on the AWS Cloud. When you want to work again on the app you can write new code, and follow the CDK work flow to the deploy section check if it works and destroy again.
 
 destroy cdk `cdk destroy` - you will get a prompt to destroy and then the deploy is destroyed
+
 ```
 Are you sure you want to delete: AwsCdkDemoAppStack (y/n)? y
 AwsCdkDemoAppStack: destroying...
 
  ✅  AwsCdkDemoAppStack: destroyed
- ```
+```
