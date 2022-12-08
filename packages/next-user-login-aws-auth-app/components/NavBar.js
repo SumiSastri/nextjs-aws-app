@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Auth } from "aws-amplify";
-import { withAuthenticator } from "@aws-amplify/ui-react";
+// import { withAuthenticator } from "@aws-amplify/ui-react";
 
 const NavBar = () => {
   // CALL BACK FOR SIGN OUT BUTTON
@@ -45,5 +45,5 @@ const NavBar = () => {
     </nav>
   );
 };
-
-export default withAuthenticator(NavBar);
+export default NavBar;
+// export default withAuthenticator(NavBar);

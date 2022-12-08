@@ -15,7 +15,6 @@ export default function Home() {
         </h1>
         <h4 className="d-flex flex-row justify-content-center">Demo of AWS Amplify and Cognito</h4>
         <h6 className="d-flex flex-row justify-content-center p-4">Welcome to this demo which allows authenticated users to sign-in and sign-out.</h6>
-        {/* <h6 className="d-flex flex-row justify-content-center p-5">To create an account please enter a valid email. A confirmation code will be sent by AWS and you will be able to interact with the App. A user is created in the Cognito user pool. Only validated users can sign in and out.</h6> */}
       </div>
     </div>
   )

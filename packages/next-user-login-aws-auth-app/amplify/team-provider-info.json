@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "nextuserloginawsauth9d71dcbe": {}
+        "nextuserloginawsauth9d71dcbe": {},
+        "userPoolGroups": {}
       },
       "api": {
         "nextuserloginawsauth": {}

@@ -5,7 +5,11 @@
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "expirationTime": 7,
+      "apiKeyExpirationDate": "2022-12-13T21:06:14.580Z",
+      "keyDescription": "sumi-dev-amplify"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
   }
 }
