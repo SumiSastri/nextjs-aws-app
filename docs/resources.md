@@ -42,6 +42,9 @@ AWS Video 1 - Set up AWS Backend
 AWS Video 2 - Set up auth and user pools with GraphQL/ AppSync
 [https://www.youtube.com/watch?v=hbx1AlbiuzE&list=RDCMUChpIik3lwpviVj_tIoCeUHw&index=2]
 
+AWS SQS Video 1:
+[https://www.youtube.com/watch?v=CT145UR5NaI&t=0s]
+
 **Other resources**
 The CDK book
 https://thecdkbook.com/

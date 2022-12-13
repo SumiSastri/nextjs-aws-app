@@ -1,4 +1,4 @@
-AWS Cloud Formation is an AWS service that provisions AWS Resources. Examples of AWS Resources are AWS Lambdas, the s3 bucket to store static files, dynamoDB tables, etc.
+AWS Cloud Formation is an AWS service that provisions AWS Resources. Examples of AWS Resources are AWS Lambdas, the S3 bucket to store static files, dynamoDB tables, etc.
 
 Plural Sight Overview:
 [https://app.pluralsight.com/library/courses/introduction-aws-cloudformation/table-of-contents]

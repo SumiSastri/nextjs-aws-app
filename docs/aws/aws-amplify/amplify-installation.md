@@ -32,6 +32,7 @@ Docs
 - `amplify auth console` you will be connected to the Amplify Console - check user has been created.
 - `amplify push` deploys changes
 - `amplify auth console` select `UserPool` Check cognito user pools
+- `amplify add name of service` - add an AWS service
 
 Once you have done this to continue to connect your local machine to AWS
 

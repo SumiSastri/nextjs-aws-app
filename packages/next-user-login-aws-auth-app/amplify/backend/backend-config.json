@@ -63,5 +63,12 @@
         }
       }
     }
+  },
+  "storage": {
+    "NextAuthUserAvatars": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }

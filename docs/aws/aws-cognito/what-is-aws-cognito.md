@@ -6,6 +6,9 @@ Cognito takes care of authentiation, user management, synchronisation of this us
 
 The 2 ways are via they can be used independently or together
 
+Cognito - User Pool
+IAM - Identity Pool
+
 - user pools (who the user is - details of the user) - user directory that provide sign-up and sign-in options for web and mobile app users
 - identity pools or Federated identities (granting of permissions and access via 3rd parties) - Apple/ google/ social media - here they have an AWS Id via the 3rd party, this creates a new user id based on the federated access and when full access is required (move from guest to permanant user) it synchronises the federated user to the unique user and adds to the user pool (directory)
 
