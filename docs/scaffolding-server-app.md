@@ -11,7 +11,7 @@ This is the GraphQL Section which demos a full server-side creation of a GraphQL
 - initialise with node `npm init`
 - add `.gitignore` file and server side folde
 - `npm install --y` install node modules
-- install server-side dependencies `npm install express mongoose helmet cors dotenv colors nodemon graphql express-graphql lodash body-parser express-router`
+- install server-side dependencies `npm install express mongoose helmet cors dotenv colors nodemon graphql@^14.7.0 express-graphql lodash body-parser express-router`
 
 - check your package-json to see the dependencies have been installed.
 

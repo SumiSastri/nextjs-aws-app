@@ -62,7 +62,7 @@ const EditUser = ({ error, mode, user }) => {
   const handleEditUserSubmission = async (event) => {
     const currentUser = await Auth.currentAuthenticatedUser();
     // const id = currentAuthenticatedUser.attributes.sub;
-    // console.log(currentUser, "PRINT CURRENT USER");
+    console.log(currentUser, "PRINT CURRENT USER");
     // console.log(id, "PRINT CURRENT USER ID");
     event.preventDefault();
     try {

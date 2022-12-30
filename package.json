@@ -1,16 +1,14 @@
 {
   "name": "nextjs-aws-app",
   "version": "1.0.0",
-  "description": "fullstack-mengg-stack",
+  "description": "server-serverless-demos",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "npm run build && node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "worker": "node server/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SumiSastri/nextjs-aws-app.git"

@@ -51,3 +51,22 @@ https://thecdkbook.com/
 
 Blog: Dev.to [https://dev.to/codebeast/authentication-in-a-nextjs-app-with-aws-amplify-2057]
 React docs [https://ui.docs.amplify.aws/react/connected-components/authenticator]
+
+Next js
+https://www.youtube.com/watch?v=xtItzwYG6oQ
+
+https://www.youtube.com/watch?v=XzE-PzALyDc
+
+CRUD
+https://www.youtube.com/watch?v=ss48f0pnwqo
+
+FoRms
+https://www.youtube.com/watch?v=KlWlECVfwwU
+
+CRUD - MONGO - JASON RIVIERA
+https://www.youtube.com/watch?v=tt9hws5JGRc
+
+Graph ql
+
+https://www.rubrik.com/blog/technology/19/11/graphql-vs-rest-apis
+https://hygraph.com/blog/graphql-vs-rest-apis
