@@ -1,4 +1,4 @@
-Cognito offers user access and identity pools. User pools are directories that provide sign-up and sign-in options taking care of access and identity management and user authentication - IdaaM (Id and access management). Cognito manages the EC2 instances that manage the data storage and security of users.
+Cognito offers user access and identity pools. User pools are directories that provide sign-up and sign-in options taking care of access and identity management and user authentication - IdaaM (Id and access management) with the service AWS IAM. Cognito manages the EC2 instances that manage the data storage and security of users.
 
 While there are several IdaaM service providers - offering MFA (multi-factor-authentication), session based authentication with JWT (Json Web Token) - AWS Cognito offers its own solution to registering and logging on users for both web and mobile application. Cognito is a managed service and allows third party single-sign on with google/fb/ twitter/ Linked-in as well.
 

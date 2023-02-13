@@ -103,6 +103,9 @@ Use `npm run watch` in a separate terminal to watch code compile and catch bugs 
 Check code diff `cdk diff`
 
 This section follows the Plural Sight Course
+
+Destroy each deploy after each session - this keeps you in the AWS free-tier band
+
 **AWS Infrastructure with TypeScript - David Tucker**
 [https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents]
 

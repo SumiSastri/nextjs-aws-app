@@ -16,7 +16,9 @@ AWS Infrastructure with TypeScript - David Tucker
 [https://app.pluralsight.com/library/courses/aws-infrastructure-typescript-getting-started/table-of-contents]
 
 An Introduction to AWS Lamda - Fernando Medina Corey
-(Python pathway - only intro useful - some concepts covered better by AWS CDK The Big Picture by David Tucket)
+(Python pathway - only intro useful)
+
+AWS CDK The Big Picture by David Tucker - very useful starting point
 https://app.pluralsight.com/library/courses/aws-developer-introduction-aws-lambda/table-of-contents
 
 AWS Developer: Getting Started - Ryan H Lewis
@@ -67,6 +69,5 @@ CRUD - MONGO - JASON RIVIERA
 https://www.youtube.com/watch?v=tt9hws5JGRc
 
 Graph ql
-
 https://www.rubrik.com/blog/technology/19/11/graphql-vs-rest-apis
 https://hygraph.com/blog/graphql-vs-rest-apis
