@@ -41,5 +41,6 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "keywords": []
 }

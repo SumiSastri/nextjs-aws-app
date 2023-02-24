@@ -2,7 +2,34 @@
 
 Server and serverless apps with Lerna as a package manager.
 
-# Available scripts
+# Pre-requisites
+
+- HTML, CSS, JavaScript (ES6), React, NodeJs, npm & monorepo package management fundamentals
+- GitHub account
+- Text editor
+
+# Repo access
+
+Clone [https://github.com/SumiSastri/nextjs-aws-app.git]
+In root install node `npm install -y`
+
+Bootstrap all repo packages with lerna `npx lerna bootstrap`
+
+# Access to NextJs-AWS
+
+`cd packages/next-user-login-aws`
+Install node `npm install --y`
+
+Script to spin up front end `npm run dev`
+
+PORT:
+http://localhost:3000/
+
+# NextJs available scripts
+
+`npm run build` - compiles code and prepares it for production
+`npm run start` - compiles for production mode
+`npm run lint` - ensures linting errors are picked up in run time
 
 1. GraphQL-MongoDB-Express Server App
    `cd packages/server`
@@ -33,8 +60,6 @@ Pre-requisistes
   ( NOTE: AWS can change to paid model at any time. Credit card details required up front.
   Set budget limits and/or destroy code or close account in 12 months)
 
-Clone [https://github.com/SumiSastri/nextjs-aws-app.git]
-Install dependencies `npm init -y`
 Seed data `server/data/mocks` to populate your MongoDb database
 Spin up express server - `cd server` and `node index.js`
 Set up your MongoDb access - you need to be logged on to your MongoCloud
@@ -46,20 +71,6 @@ NODE_ENV="development"
 PORT=4000
 mongodb+srv://username:<password>@cluster0.slip5.mongodb.net/test
 ```
-
-# Package management
-
-Install lerna in root n`pm install lerna --save-dev`
-Initialise `npx lerna init`
-You should have an empty packages folder in root as well as a lerna.json and package.json file. In the `package.json` as well as the `lerna.json` add a version "version": "1.0.0". Add a .gitignore file to ignore node modules
-Update all packages in the app in root with `npx lerna bootstrap`
-Run build in root `npm run build`
-
-# Access to NextJs-AWS
-
-If you have cloned the app run `npx lerna bootstrap` in root to ensure you have node modules installed
-
-`cd packages/next-user-login-aws` and spin up front end `npm serve dev`
 
 **AWS-Amplify-Cognito**
 
