@@ -1,34 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AWS architecture diagram
 
-## Getting Started
+<img src="docs/assets/nextJs-auth-architecture.png" alt="NextJs and AWS Authorisation App Architecture Diagram" height="350"/>
 
-First, run the development server:
+## Repo access
 
-```bash
-npm run dev
-# or
-yarn dev
+Pre-requisites:
+This repo uses `npm` and `lerna` as package managers.
+
+- Fundamentals of HTML, CSS, JavaScript (ES6), React, NodeJs, npm & monorepo package management
+- GitHub account
+- Text editor
+- AWS account
+- NodeJs <=10
+- npm <=5
+
+If you have cloned the main repo -
+
+`npx lerna bootstrap` (adds node modules to each submodule)
+
+`cd packages/next-user-login-aws-auth-app` (if this does not work)
+
+- `npm install --y`(install node modules)
+
+Updating packages `npx npm-check-updates -i '/@?aws-amplify/' && npm update`
+
+## AWS backend set up
+
+To switch from AWS service configs use vim command in root `vi ~/.aws/credentials`
+
+- exit vim `escape :` after the colon type`1,$d` to delete the previous session token and all authentication
+- you can also delete a specific number of lines `:[Start],[end]d` eg: `:1,4d` - to only delete the session token
+
+Check for duplicate packages if the output is zero you have no duplicate packages
+
+```
+npm ls -all 2>/dev/null | \
+  grep -o -e '@\?aws-amplify[^ ]*' | \
+  sort | uniq | \
+  sed -E 's/^(@?[^@]+).*$/\1/g' | \
+  uniq -d | sort
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Amplify configuration**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Initialise the repo `amplify init` - this takes you to your amplify configuration if you already have initialised it then you need to sync the app with `amplify pull`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Log into your AWS Account - in the AWS Console go to your amplify app and get the id for your app you can then run the command `amplify pull --appId --envName`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Run `amplify configure <your-config-name>` (eg: `amplify configure sumi-dev-amplify`) this is a bespoke configuration that connects Amplify to the AWS cloud based on your configuration.
 
-## Learn More
+Run `amplify push`
 
-To learn more about Next.js, take a look at the following resources:
+**Useful commands**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `amplify pull --appId <getIdFromAWSConsole> --envName dev`
+- `amplify status` for changes
+- `amplify push` deploys changes
+- `amplify add name of service` - add an AWS service
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Check Cognito user pools**
 
-## Deploy on Vercel
+- `amplify auth console` you will be connected to the Amplify Console - check user has been created.
+- `amplify auth console` select `UserPool` Check cognito user pools
+- `amplify update auth` to update the auth configuration
+  On prompt what do you want to do `Create or update Cognito user pool groups`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+User pool name is nextdemo1
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**AppSync configuration**
+
+`amplify update api` update the api configuration
+Selections for this repo
+GraphQL
+
+## Frontend access
+
+`cd packages/next-user-login-aws-auth-app`
+
+Once you have configured your amplify environment locally
+`npm run dev` Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

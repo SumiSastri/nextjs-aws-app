@@ -5,11 +5,11 @@ import { withSSRContext } from "aws-amplify";
 // import { v4 as uuidv4 } from "uuid";
 
 // queries
-import { getUser } from "../src/graphql/queries";
+import { getUser } from "../../src/graphql/queries";
 // mutations
-import { createUser, updateUser } from "../src/graphql/mutations";
+import { createUser, updateUser } from "../../src/graphql/mutations";
 // components
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 
 // renders before component renders on browsers on the server-side - safely checks authentication
 export async function getServerSideProps({ req, res }) {

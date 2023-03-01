@@ -4,12 +4,14 @@ import NavBar from "../components/NavBar"
 const Home = () => {
   return (
     <div className="d-flex flex-column justify-content-start">
+      {/* meta */}
       <Head>
         <title>Nextjs with AWS Auth App</title>
       </Head>
+      {/* main */}
       <NavBar />
       <div >
-        <h6 className="d-flex flex-row justify-content-center p-4">Welcome to this demo which allows authenticated users to sign-in and sign-out.</h6>
+        <h4 className="d-flex flex-row justify-content-center p-4">Welcome you have successfully signed in as an authenticated user</h4>
       </div>
     </div>
   )
