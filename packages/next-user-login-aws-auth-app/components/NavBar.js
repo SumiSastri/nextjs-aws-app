@@ -31,6 +31,11 @@ const NavBar = () => {
               About
             </Link>
             <li className='nav-item'>
+              <Link href='/create-user' className='nav-link'>
+                Create User
+              </Link>
+            </li>
+            <li className='nav-item'>
               <Link href='/edit-user' className='nav-link'>
                 Edit User
               </Link>

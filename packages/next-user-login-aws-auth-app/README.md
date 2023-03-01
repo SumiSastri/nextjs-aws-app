@@ -66,10 +66,9 @@ Run `amplify push`
   On prompt what do you want to do `Create or update Cognito user pool groups`
 
 **AppSync configuration**
-
+`amplify add api` - for the first time to set up the API - as the API has already been set up and if you are pulling this repo, you need to update the config
 `amplify update api` update the api configuration
-Selections for this repo
-GraphQL
+`amplify api console` - this takes you to the APIs set up and you can check the GraphQL API data
 
 ## Frontend access
 
