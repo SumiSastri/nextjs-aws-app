@@ -39,4 +39,5 @@ Once you have done this to continue to connect your local machine to AWS
 1. Login to your AWS account
 2. In root `amplify configure your-profile-name` eg: `amplify configure sumi-dev-amplify`
 3. Run `amplify push` this deploys the last changes and makes sure your app has the latest version of the changes connected from your local machine to the cloud
+
    NOTE: you may be requested to re-establish your configuration with the access-key and secret-access

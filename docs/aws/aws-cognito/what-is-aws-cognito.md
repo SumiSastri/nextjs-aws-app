@@ -1,6 +1,10 @@
-Cognito offers user access and identity pools. User pools are directories that provide sign-up and sign-in options taking care of access and identity management and user authentication - IdaaM (Id and access management) with the service AWS IAM. Cognito manages the EC2 instances that manage the data storage and security of users.
+Cognito offers user access and identity pools. User pools are directories that provide sign-up and sign-in options taking care of access and identity management and user authentication - Idam (Id and access management) with the service AWS IAM.
 
-While there are several IdaaM service providers - offering MFA (multi-factor-authentication), session based authentication with JWT (Json Web Token) - AWS Cognito offers its own solution to registering and logging on users for both web and mobile application. Cognito is a managed service and allows third party single-sign on with google/fb/ twitter/ Linked-in as well.
+Cognito manages the EC2 instances that manage the data storage and security of users.
+
+While there are several Idam service providers - offering MFA (multi-factor-authentication), session based authentication with JWT (Json Web Token) - AWS Cognito offers its own solution to registering and logging on users for both web and mobile application.
+
+Cognito is a managed service and allows third party single-sign (federated identities) on with google/fb/ twitter/ Linked-in as well.
 
 Cognito takes care of authentiation, user management, synchronisation of this user management across multiple platforms.
 
@@ -10,6 +14,7 @@ Cognito - User Pool
 IAM - Identity Pool
 
 - user pools (who the user is - details of the user) - user directory that provide sign-up and sign-in options for web and mobile app users
+
 - identity pools or Federated identities (granting of permissions and access via 3rd parties) - Apple/ google/ social media - here they have an AWS Id via the 3rd party, this creates a new user id based on the federated access and when full access is required (move from guest to permanant user) it synchronises the federated user to the unique user and adds to the user pool (directory)
 
 Advantages

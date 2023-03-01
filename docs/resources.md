@@ -39,7 +39,6 @@ TypeScript - AWS CDK demo with V2 - outlines differences between V1 and V2
 
 AWS Video 1 - Set up AWS Backend
 [https://www.youtube.com/watch?v=oihW1pms4A8&t=0s]
-[https://www.youtube.com/watch?v=oihW1pms4A8]
 
 AWS Video 2 - Set up auth and user pools with GraphQL/ AppSync
 [https://www.youtube.com/watch?v=hbx1AlbiuzE&list=RDCMUChpIik3lwpviVj_tIoCeUHw&index=2]

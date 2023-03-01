@@ -1,21 +1,27 @@
-Amplify allows developers to quickly spin up a backend - whether using a REST or GraphQL API.
+Amplify is a development framework that helps you make full stack apps. You can create web and mobile apps connecting a front-end framework or library, such as Angular/ React or Next and add backend features like auth, data, aiml for the backend and connect to the AWS Cloud services.
 
+The Amplify platform includes tools and services that enable developers to connect apps, deploy static web apps, manage and create applications for AWS Cloud. It provides authentication, analytics, storage, caching, ui-components and API-creation/management. You can use either REST or GraphQL queries for your HTTP calls.
+
+The command-line-tool (CLI) helps you make these connections programmatically. The Amplify CLI you get a connection between the frontend frameworks of the App and the backend Cloud Services of AWS with a host of developer tools. The CLI helps configurethe backend.
+
+Eg: - `amplify add name of service` - adds the name of an AWS service you want to configure to your project.
+
+More on [https://aws.amazon.com/amplify/]
 AWS You Tube Video[https://www.youtube.com/watch?v=7ekxPmVNV8k&t=11s]
 
-It is a platform that includes a plethora of tools and services that enable users to connect apps, deploy static web apps, manage and create applications for AWS Cloud.
+You can also programatically create the Amplify environment which is the layer between the front-end applications and the backend data layer.
 
-It provides authentication, analytics, storage, caching, ui-components and API-creation/management.
+Amplify isn't an API gateway but an environment in the network layer to provide connectivity specifically with AWS backend services with frontend libraries and frameworks.
 
-With the Amplify CLI you get a connection between the Frameworks of the App/ Cloud Services of AWS and Developer tools. The CLI helps us to configure everything in the backend. More on [https://aws.amazon.com/amplify/]
+Amplify services
 
-You can also programatically create the Amplify environment which is the layer between the front-end applications and the backend data layer. It is not an API gateway but an environment in the network layer to provide connectivity specifically with AWS backend services.
+1. Amplify CLI - as well as its own management console (Amplify Console not the AWS Console). There are 175 backend services that can be accessed programatically with the CLI. As seen in the above example by running a short command - `amplify add name of service` you can add any of these servies
 
-The useful services are:
-Amplify CLI - as well as its own management console (Amplify Console not the AWS Console).
+2. Amplify Libraries - in addition to access to the 175 plus resources in the AWS Cloud with the AWS CLI, Amplify also has specific libraries to facilitate safe authentication, storage of files, data stocking, serverless APIs, analytics, push notifications, AR/VR, and multiple other applications’ features
 
-Libraries - Using AWS Amplify, you can add, integrate and interact with AWS cloud services through this component. The library also facilitates safe authentication, storage of files, data stocking, serverless APIs, analytics, push notifications, AR/VR, and multiple other applications’ features.
+- Amplify UI components - the authentication-requirement component for example is a pre-built sign-in form that you can integrate into any front-end library like Next/ React.
 
-UI components - the authentication-requirement component for example is a pre-built sign-in form that you can integrate into any front-end library like Next/ React.
+- Amplify Studio - a workflow tool
 
 Advantages and Disadvantages Blog: [https://medium.com/analytics-vidhya/what-is-aws-amplify-advantages-and-disadvantages-of-aws-amplify-49ddc4831467]
 

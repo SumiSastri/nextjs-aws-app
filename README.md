@@ -15,16 +15,6 @@ In root install node `npm install -y`
 
 Bootstrap all repo packages with lerna `npx lerna bootstrap`
 
-# Access to NextJs-AWS
-
-`cd packages/next-user-login-aws`
-Install node `npm install --y`
-
-Script to spin up front end `npm run dev`
-
-PORT:
-http://localhost:3000/
-
 # NextJs available scripts
 
 `npm run build` - compiles code and prepares it for production
@@ -71,20 +61,6 @@ NODE_ENV="development"
 PORT=4000
 mongodb+srv://username:<password>@cluster0.slip5.mongodb.net/test
 ```
-
-**AWS-Amplify-Cognito**
-
-Log into your AWS Account
-`amplify configure` - follow instructions to configure
-
-You will need to save your:
-
-`aws_access_key_id`
-`aws_secret_access_key`
-
-Once set up you can `amplify push` to build the repo
-
-Everytime you need to update or access this section you will need to configure Amplify to access the repo data.
 
 # Access to AWS-CDK demo
 

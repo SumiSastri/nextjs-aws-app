@@ -1,29 +1,35 @@
-AppSync is an AWS product that simplifies the process of developing applications. It ships with serverless GraphQL as an alternative to REST to access data from one or more sources or microservices with a single network request. AppSync is a GraplQL API or a managed service that uses GraphQL to make it easy for applications to get exactly the data they need - a managed service means that AWS does all the heavy lifting on GraphQL.
+# What is AWS AppSync
 
-AppSync
+AppSync is an API interface that allows you to query data using the GraphQL query language as well as REST API calls. In the configuration you can choose which query option you require either GraphQL or REST.
 
-1. Creates the DynamoDB tables
-2. Creates GraphQL queries and mutations
+AppSync is an AWS product that quickly syncs data sent from the frontend (app) to the backend (data stores).
 
-Official docs [https://eu-west-2.console.aws.amazon.com/appsync/home?region=eu-west-2#/]
+<img src="docs/assets/nextJs-auth-architecture.png" alt="NextJs and AWS Authorisation App Architecture Diagram" height="350"/>
 
-Advantages
+In this architecture diagram, see how AppSync is an additional layer between Amplify and the Dynamo DB database. Also note that GraphQL is the interface and query language used to call the authentication API from Cognito. Amplify is the glue that sticks it all together.
 
-**Security** - unified secured data - AWS layers security on GraphlQL with several levels of data access and authorization depending on the needs of an application. Simple access can be protected by a key and more restrictive permission can be done with AWS IdAM using Roles. Additionally, AWS AppSync integrates with Amazon Cognito User Pools for email and password functionality, social providers (Facebook, Google+, and Login with Amazon), and enterprise federation with SAML. Customers can use the Group functionality for logical organization of users and roles as well as OAuth features for application access.
-**AWS ecosystem**
-App sync is like a middleware that sits between client-facing apps and other AWS infra. It is the glue that sticks several AWS services to a GrapqhQL API
+In an integration environment the frontend data can be streamed into various channels where APIs are called - a database/ an email marketing service/ a fulfilment warehouse management system/ a call center/ a customer-relationship-management service.
 
-- DynamoDb - A document based database (noSQL)
-- AMZ Aurora - ships with MySQL and PostgreSQL compatibility
-- S3
-- Cognito for IdAM (authentication)
-  **Data caching**
-  **Extensibility** - multiple data sources (SQL, document type etc.) Classic GraphQL advantages of immediate updates across clients and devices.
-  **Subscriptions** - real-time event-driven APIs to subscribed clients (posts, comments etc) using AWS AppSyncs PubSub API wizard. GraphQL Subscriptions are simple statements in the application code that tell the service what data should be updated in real-time.
-  **Offline support** due to the AWS ecosystem, Amplify DataStore powered by AWS AppSync ships with the software and is a queryable on-device DataStore for web, mobile and IoT developers that enables a local-first and familiar programming model to interact with data seamlessly whether you’re online or offline. The DataStore provides versioning, conflict detection and resolution in the cloud to automatically merge data from different clients as well as provide data consistency and integrity.
-  **Fast set-up & scalability**
-  **CLI from local to cloud**
-  **Observability** - monitoring, analytics, logging and tracing - With AWS AppSync you can easily configure AWS CloudWatch and AWS X-Ray to provide comprehensive logging and tracing for your GraphQL API.
+Instead of querying this data directly, using AppSync there is another layer of security introduced.
 
-Further reading:
-What is AppSync - docs [https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html]
+See architecture diagram on the AWS docs [https://aws.amazon.com/appsync/]
+
+The data that is sent in the form of an HTTP request. The request header is sent to various endpoints and gets a response back from the endpoints. The response if successful flows back into the front end to be consumed and this is done via the AppSynch layer.
+
+Since in the integration environment, several APIs may be called, the option of GraphQL as a query language is preferred by some as it requires only a single data call in the query.
+
+AppSync from AWS ships with serverless GraphQL allowing the developers to access data from one or more sources or microservices with a single network request and prebundled query-response configurations.
+
+GraphQL schemas with their associated resolvers are compiled and then query AWS backend services - Aurora, DynamoDb, AWS Lambda, HTTP and local pub/sub calls into other AWS services that are deeper into the backend or to public API calls. This abstraction gives another layer of security.
+
+Check the official video: [https://youtu.be/Rz_wK6z8kMU]
+
+AWS's AppSync therefore is a managed service for GraphQL calls - a managed service means that AWS does all the heavy lifting on GraphQL by pre-compiling your queries and mutations as you define them as well as shipping them in the format required in the HTTP call-response cycle.
+
+In this repo AppSync is used to
+
+1. Create DynamoDB tables
+2. Create GraphQL queries and mutations
+3. Access the S3 bucket for static images
+
+But it can be used to connect to many more services.
