@@ -3,7 +3,7 @@ import { Authenticator } from "@aws-amplify/ui-react"
 import '@aws-amplify/ui-react/styles.css';
 import awsmobile from "../src/aws-exports"
 import type { AppProps } from 'next/app'
-
+// styles in root
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles/globals.css'
 

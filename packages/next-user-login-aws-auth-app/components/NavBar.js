@@ -8,8 +8,9 @@ const NavBar = () => {
   const handleSignOutSubmit = async () => {
     try {
       await Auth.signOut();
+      console.log(Auth.signOut, "SUCCESS: SIGN OUT");
     } catch (error) {
-      console.log(error, "FAIL: SIGN OUT FAILED");
+      console.log(error, "OOPS - SIGN OUT ERROR");
     }
   };
 
@@ -48,5 +49,5 @@ const NavBar = () => {
     </nav>
   );
 };
-export default NavBar;
-// export default withAuthenticator(NavBar);
+// export default NavBar;
+export default withAuthenticator(NavBar);

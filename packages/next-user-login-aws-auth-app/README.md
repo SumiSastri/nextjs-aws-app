@@ -7,7 +7,7 @@
 Pre-requisites:
 This repo uses `npm` and `lerna` as package managers.
 
-- Fundamentals of HTML, CSS, JavaScript (ES6), React, NodeJs, npm & monorepo package management
+- Fundamentals of HTML, CSS (Bootstrap), JavaScript (ES6), TypeScript, React, NextJs, NodeJs, npm & monorepo package management, version control with GitHub, API calls - GraphQL
 - GitHub account
 - Text editor
 - AWS account
@@ -65,8 +65,6 @@ Run `amplify push`
 - `amplify update auth` to update the auth configuration
   On prompt what do you want to do `Create or update Cognito user pool groups`
 
-User pool name is nextdemo1
-
 **AppSync configuration**
 
 `amplify update api` update the api configuration
@@ -79,3 +77,24 @@ GraphQL
 
 Once you have configured your amplify environment locally
 `npm run dev` Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+**Mark-up**Styles
+
+`npm install react-bootstrap bootstrap` bootstrap styling to be added to `app.tsx` at root
+
+Read handling bootstrap integration with NextJS (as this framework ships with its own CSS)
+[https://blog.logrocket.com/handling-bootstrap-integration-next-js/]
+
+There are some conflicts to be resolved with `eslint`
+
+```
+// Create a .babelrc in your root folder adding this
+{
+  "presets": ["next/babel"],
+  "plugins": []
+}
+// Then replace current code on .eslintrc with this
+{
+  "extends": ["next/babel"]
+}
+```
