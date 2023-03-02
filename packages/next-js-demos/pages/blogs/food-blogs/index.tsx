@@ -5,8 +5,11 @@ const FoodBlogs = () => {
         <div className='d-flex flex-column justify-content-start'>
             Food blogs home
             <div>
-                <BackToBlogsHome />
+                <h6 className='d-flex flex-row justify-content-center p-4'>
+                    Recipe List
+                </h6>
             </div>
+            <BackToBlogsHome />
         </div>
     );
 };

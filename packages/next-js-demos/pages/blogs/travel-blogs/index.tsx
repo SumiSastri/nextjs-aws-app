@@ -6,7 +6,7 @@ const TravelBlogs = () => {
             Travel blogs home
             <div>
                 <h6 className='d-flex flex-row justify-content-center p-4'>
-                    Travel blogs home
+                    Country list
                 </h6>
             </div>
             <BackToBlogsHome />

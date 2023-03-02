@@ -6,7 +6,7 @@ const NavBackToHome = () => {
         <div>
             <button className="back-to-home-button" onClick={() => {
                 router.replace("/")
-            }}>Back to Latest Blogs</button>
+            }}>Back to Home Page</button>
         </div>
     );
 };
