@@ -1,11 +1,12 @@
+import BlogsNav from "../../components/blogs-nav";
+import NavBackToHome from "../../components/back-to-home";
+
 const Blogs = () => {
   return (
     <div className='d-flex flex-column justify-content-start'>
-      Blogs Home
       <div>
-        <h6 className='d-flex flex-row justify-content-center p-4'>
-          This is the blogs home page
-        </h6>
+        <BlogsNav />
+        <NavBackToHome />
       </div>
     </div>
   );

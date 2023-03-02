@@ -1,3 +1,5 @@
+import BackToBlogsHome from "../../../components/back-to-blogs-home/BackToBlogsHome";
+
 const TravelBlogs = () => {
     return (
         <div className='d-flex flex-column justify-content-start'>
@@ -7,6 +9,7 @@ const TravelBlogs = () => {
                     Travel blogs home
                 </h6>
             </div>
+            <BackToBlogsHome />
         </div>
     );
 };

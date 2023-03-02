@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -6,13 +10,117 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+h1{
+  color: navy;
+}
+
+h1:hover {
+  color: #666;
+}
+
+h2{
+  color: darkgrey;
+}
+
+h2:hover {
+  color: crimson
+}
+
+h3{
+  color: darkgreen;
+}
+h3:hover {
+  color: #666;
+}
+h4{
+  color: darkgoldenrod;
+}
+h4:hover {
+  color: #666;
+}
+h5{
+  color: crimson;
+}
+h5:hover {
+  color: #666;
+}
+h6{
+  color: brown;
+}
+h6:hover {
+  color: #666;
+}
+nav {
+   margin: 1em;
+   padding: 2rem 0;
+ }
+
+ nav a {
+   margin-left: 12px;
+ }
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+ul {
+  list-style: none;
+  margin: 1em;
+   display: flex;
+   justify-content: space-evenly;
+   border-bottom: 3px solid darkolivegreen;
+   flex: 1;
+   padding: 2rem 0;
+}
+
+.back-to-home-button {
+  background: lightcyan;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 2em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  overflow: auto;
+  margin: 1em;
+}
+
+table td,
+table th {
+  border: 1px solid lightyellow;
+  padding: 8px;
+}
+
+table tr:nth-child(even) {
+  background-color: lightblue;
+}
+
+table tr:hover {
+  background-color: lightyellow;
+}
+/* sticky tables with change in css */
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: darkcyan;
+  color: lightgoldenrodyellow;
+  z-index: 2;
+  position: sticky;
+  top: 0;
+}
+
+tfoot td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #470b38;
+  color: white;
 }
 
 @media (prefers-color-scheme: dark) {

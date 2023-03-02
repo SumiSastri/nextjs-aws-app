@@ -1,3 +1,5 @@
+import NavBackToHome from "../../components/back-to-home";
+
 const About = () => {
   return (
     <div className='d-flex flex-column justify-content-start'>
@@ -5,6 +7,7 @@ const About = () => {
       <h4 className='d-flex flex-row justify-content-center'>
         This is an About page
       </h4>
+      <NavBackToHome />
     </div>
   );
 };
