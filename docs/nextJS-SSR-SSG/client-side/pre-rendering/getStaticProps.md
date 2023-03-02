@@ -17,3 +17,9 @@ export const getStaticProps = async () => {
 ```
 
 The code runs in build time - and it runs on every request.
+
+When a page with the method is pre-rendered at build time, Next generates a JSON file as well. This JSON file is used in client-side routing (through the router object or the link object).
+
+When the user fetches the page, Next fetches the JSON file which is compiled at build time and uses it as the props to hydrate the page and create the page component with the fetched data on the client side.
+
+This means the page does not call the method `getStaticProps` this happens server side and only the JSON data is used.
