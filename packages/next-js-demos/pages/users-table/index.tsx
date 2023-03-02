@@ -1,12 +1,12 @@
 
 export const getStaticProps = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users")
-    const userData = await response.json()
-    // console.log(userData)
+    const userData = await fetch("https://jsonplaceholder.typicode.com/users")
+    const users = await userData.json()
+    // console.log(users)
     // getStatic props returns a plain object
-    return { props: { users: userData } }
+    return { props: { users } }
 }
-
+// props will be received in build time
 const UsersTable = ({ users }: any) => {
     return (
         <div>
