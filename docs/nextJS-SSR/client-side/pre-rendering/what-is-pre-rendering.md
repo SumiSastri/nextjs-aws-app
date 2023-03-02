@@ -1,0 +1,3 @@
+React compiles all code outside the DOM in a virtual-DOM and renders one root page. The JavaScript loads and through the process of hydration, React components are initialised and the App because interactive - users can interact with form pages and the SPA routing. The process by which each page is loaded on to the DOM from the virutal DOM is what is referred to as hydration.
+
+Next uses the React library and then instead of rendering only one root HTML page compiles all the pages server-side and renders all the pages as individual HTML pages. Therefore each HTML page is rendered in advance server-side before it is sent to the browser.
