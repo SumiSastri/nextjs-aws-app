@@ -1,6 +1,15 @@
-**AWS CDK Workflow**
+---
+layout: default
+title: AWS CDK Workflow
+parent: AWS-CDK-Cloud-Development-Kit
+grand_parent: AWS
+---
 
-**INSTALL**
+# AWS CDK WorkFlow
+
+The workflow is Install -> Configure -> Construct -> Boostrap -> Synthesize -> Deploy -> Destroy
+
+## INSTALL
 
 1. Install the AWS CDK with node package manager globally `npm install aws-cdk -g`
 2. Create a directory for the project `aws-cdk-demo-app`
@@ -17,14 +26,14 @@ The package ships with
 - in addition to the `package.json` file there is a `cdk.json` file (review both to familiarise yourself with what is in it)
 - for typescript the `tsconfig.json` file
 
-**Useful CLI commands**
+### Useful CLI commands
 
 check documentation `cdk docs`
 bootstrap local code to cloud services`cdk bootstrap`
 list all stacks `cdk list`
 check local with deploy `cdk diff`
 
-**CONFIGURE**
+## CONFIGURE
 
 In the project `cd aws-cdk-demo-app`
 Configure AWS to sync local to AWS Cloud services `aws configure --profile your-profile-name`
@@ -45,7 +54,7 @@ To change details if you have got them wrong - see instructions on aws configure
 - change output format `aws configure set output json`/ `aws configure set output text`
 - change region name - `aws configure set region us-west-2`
 
-**BOOTSTRAP**
+## BOOTSTRAP
 
 Once configured you can bootstrap or connect the local machine to the AWS cloud services
 `cdk bootstrap --profile your-profile name`
@@ -57,7 +66,7 @@ CDKToolkit: creating CloudFormation changeset...
  ✅  Environment aws://992722868670/eu-west-2 bootstrapped.
 ```
 
-**SYNTH**
+## SYNTHESIZE
 
 In root of app
 `mkdir templates`
@@ -65,7 +74,7 @@ In root of app
 
 Debugging synth: AssertDescription: CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.
 
-**DEPLOY**
+## DEPLOY
 
 After running the synth command if it is successful you can run
 
@@ -100,7 +109,7 @@ arn:aws:cloudformation:eu-west-2:992722868670:stack/AwsCdkDemoAppStack/9119f1a0-
 ✨  Total time: 45.81s
 ```
 
-**DESTROY**
+## DESTROY
 
 You can destroy the deployed CDK anytime and redeploy it using the steps above. The destroy does not destroy the code base on your local - only the synth files and the deploy on the AWS Cloud. When you want to work again on the app you can write new code, and follow the CDK work flow to the deploy section check if it works and destroy again.
 

@@ -55,7 +55,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 7,
-              "apiKeyExpirationDate": "2023-03-08T12:55:24.535Z",
+              "apiKeyExpirationDate": "2022-12-13T21:06:14.580Z",
               "description": "sumi-dev-amplify"
             }
           },

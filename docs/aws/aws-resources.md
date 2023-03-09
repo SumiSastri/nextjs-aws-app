@@ -9,3 +9,6 @@ SQS:
 
 Event Bridge:
 [https://www.youtube.com/watch?v=I6cXfiMkh-U]
+
+CloudFormation:
+(Plural Sight)[https://app.pluralsight.com/library/courses/introduction-aws-cloudformation/table-of-contents]

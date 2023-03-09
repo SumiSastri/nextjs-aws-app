@@ -1,27 +1,34 @@
+---
+layout: default
+title: AWS CDK v1 vs. v2
+parent: AWS-CDK-Cloud-Development-Kit
+grand_parent: AWS
+---
 
-Documentation for AWS CDK 1.x: [https://docs.aws.amazon.com/cdk/api/v1/docs/aws-construct-library.html]
-Documentation[https://docs.aws.amazon.com/cdk/v2/guide/migrating-v2.html]
-Documentation for AWS CDK 2.x: [https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html]
-Trouble shooting Documentation: [https://docs.aws.amazon.com/cdk/v2/guide/troubleshooting.html]
-APIGateWay docs[https://docs.aws.amazon.com/cdk/api/v2/docs/aws-apigatewayv2-integrations-alpha-readme.html]
-__V1__
+## AWS CDK v1 vs. V2
+
+The CDK App V2 only 1 stable version to install available since Dec 2021. It uses Node as an environment and enables code to be written CloudFormation templates.
+
+**V1**
 Pre Dec 2021
 
 1.  Bundling-minifying package parcel
-2. Imports everything and multiple imports of packages
-eg: app entry point in bin folder
-`import * as cdk from 'aws-cdk-lib';`
-3. Need to use the `cdk` object
-eg: entry point - bin folder
-`const app = new cdk.App();`
-4. The lib folder defines stacks 
- - imports everything
- eg: lambdas
- `import * as lambda from '@aws-cdk/core';`
+2.  Imports everything and multiple imports of packages
+    eg: app entry point in bin folder
+    `import * as cdk from 'aws-cdk-lib';`
+3.  Need to use the `cdk` object
+    eg: entry point - bin folder
+    `const app = new cdk.App();`
+4.  The lib folder defines stacks
+
+- imports everything
+  eg: lambdas
+  `import * as lambda from '@aws-cdk/core';`
+
 5. Config of code for stack constructor CDK V1
 
 ```
-// Stack constructor 
+// Stack constructor
 export class AwsCdkDemoAppStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
@@ -32,9 +39,11 @@ export class AwsCdkDemoAppStack extends cdk.Stack {
             exportName: 'MusicItemsDocuments'
  });
 ```
+
 6. Packages to install - see V2 - V1 packages are now out of date
 
 7. In lib folder - constructs for the stacks the lamda to get S3 assets - syntax and Node runtime version change in V2
+
 ```
 const getMusicAssetsFunction = new lamda.NodejsFunction(this, "GetMusicAssetsFunction", {
   runtime: Runtime.NODEJS_12_X,
@@ -46,19 +55,21 @@ const getMusicAssetsFunction = new lamda.NodejsFunction(this, "GetMusicAssetsFun
 });
 ```
 
-__V2__
+**V2**
 
 1. Bundling-minifying package esbuild
 2. Imports specific methods and 1 stable version to install globally
-eg: app entry point in bin folder
-`import { App } from 'aws-cdk-lib';`
+   eg: app entry point in bin folder
+   `import { App } from 'aws-cdk-lib';`
 3. Only imported methods used
-eg: entry point - bin folder
-`const app = new App();`
+   eg: entry point - bin folder
+   `const app = new App();`
 4. The lib folder defines stacks
+
 - imports specific methods used
-eg: lambdas
-`import {Function, Runtime, Code } from "aws-cdk-lib/aws-lambda";`
+  eg: lambdas
+  `import {Function, Runtime, Code } from "aws-cdk-lib/aws-lambda";`
+
 5. Code for stack constructor V2 removes the `cdk` object and uses the methods imported
 
 ```
@@ -68,18 +79,19 @@ const bucket = new Bucket(this, 'MusicItemsDocuments', {
 encryption: BucketEncryption.S3_MANAGED
 });
 
-// cfn (cloud formation network)
+// cfn (AWS CloudFormation network)
 new CfnOutput(this, 'MusicItemsExport', {
   value: bucket.bucketName,
   exportName: 'MusicItemsDocuments'
   });
 ```
+
 6. Package versions to install (as of Nov 2022)
-`npm install -save-dev "@types/aws-lambda": "^8.10.108"`
-`npm install -save-dev  "aws-sdk": "^2.1258.0" `
-`npm install @aws-cdk/aws-lambda`
-`npm install @aws-cdk/aws-lambda-nodejs`
-`npm i esbuild`
+   `npm install -save-dev "@types/aws-lambda": "^8.10.108"`
+   `npm install -save-dev  "aws-sdk": "^2.1258.0" `
+   `npm install @aws-cdk/aws-lambda`
+   `npm install @aws-cdk/aws-lambda-nodejs`
+   `npm i esbuild`
 
 7. Config of `getApi` construct is different - node runtime is 16, entry changes to code and import of S3 uses commonJS syntax `import S3 = require("aws-sdk/clients/s3"); `
 
@@ -100,6 +112,7 @@ const getMusicAssetsFunction = new Function(this, "GetMusicAssetsFunction", {
     }
 }
 ```
+
 Deprecated - is excluding aws sdk from bundling with es build
 
 See boilerplate as well - significant differences for v2
