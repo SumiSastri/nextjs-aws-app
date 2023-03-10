@@ -1,11 +1,21 @@
-Standard or Fifo queues
+---
+layout: default
+title: How Queues Work
+parent: aws-sqs
+grand_parent: aws
+---
 
-Standard queues are processed on best effort. The order is not guaranteed, it is dependent on which message is easily processed. So you do not get it in an order that is guaranteed. Unlimited processing rate.
+# How Queues Work
 
-Fifo (first-in-first-out) is a first-come-first-served basis. You will get an at least once delivery - you may want to timestamp your messages. Exactly once processing. There is a throttle of 300TPS (3000 if you used 10 messages per batch) - 25% more expensive. Multiple group message ids (eg. customer 1 and all events related to customer 1 can be batched by id and processed together)
+Standard queues are processed on best effort. The order is not guaranteed, it is dependent on which message is easily processed. So you do not get it in an order that is guaranteed. Unlimited processing rate. Standard queues guarantee at least once delivery from the publisher to the subscriber.
 
-Order service (Ecommerce) Producer (enque) - digitial representation of sales orders
-Analytics Consumer (deque)- (Ecommerce - analysing the data from the ecommerce service) this service is interested in whether the order is booked, paid for, shipped, delivered, returned so that it can analyse the patterns and inform the wider business.
+Fifo (first-in-first-out) queues is a first-come-first-served basis. It guarantees exactly once delivery - you may want to timestamp your messages. Exactly once processing. There is a throttle of 300TPS (3000 if you used 10 messages per batch) - 25% more expensive. Multiple group message ids (eg. customer 1 and all events related to customer 1 can be batched by id and processed together). It guarantees the sequence of the execution of the stack.
+
+## An Ecommerce Usecase
+
+Order service (Ecommerce) Producer/ Publisher (enque) - digitial representation of sales orders
+
+Analytics Processor/Consumer/ Subscriber (deque)- (Ecommerce - analysing the data from the ecommerce service) this service is interested in whether the order is booked, paid for, shipped, delivered, returned so that it can analyse the patterns and inform the wider business.
 
 In the past APIs ran between the 2 services. With SQS the information can be queued and batched as messages from the e-commerce and consumed by the analytics service in real time without the need for an API call.
 

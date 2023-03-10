@@ -1,6 +1,8 @@
 ---
 layout: default
 title: What is AWS CloudFormation
+parent: aws-cloud-formation
+grand_parent: aws
 ---
 
 # What is AWS CloudFormation?

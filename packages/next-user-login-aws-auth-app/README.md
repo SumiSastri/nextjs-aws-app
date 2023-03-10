@@ -77,7 +77,9 @@ Run `amplify push`
 Once you have configured your amplify environment locally
 `npm run dev` Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-**Mark-up**Styles
+**Mark-up**
+
+Styles
 
 `npm install react-bootstrap bootstrap` bootstrap styling to be added to `app.tsx` at root
 

@@ -1,8 +1,8 @@
 ---
 layout: default
 title: AWS CloudFormation
-parent: AWS
-has_children: true
+parent: aws-cloud-formation
+grand_parent: aws
 ---
 
 # AWS CloudFormation

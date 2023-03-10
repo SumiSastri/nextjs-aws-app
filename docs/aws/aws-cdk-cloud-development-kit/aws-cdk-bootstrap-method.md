@@ -1,8 +1,8 @@
 ---
 layout: default
 title: AWS CDK Bootstrap Method
-parent: AWS-CDK-Cloud-Development-Kit
-grand_parent: AWS
+parent: aws-cdk-cloud-development-kit
+grand_parent: aws
 ---
 
 # AWS CDK Bootstrap Method

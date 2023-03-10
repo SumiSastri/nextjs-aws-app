@@ -1,8 +1,8 @@
 ---
 layout: default
 title: AWS CDK v1 vs. v2
-parent: AWS-CDK-Cloud-Development-Kit
-grand_parent: AWS
+parent: aws-cdk-cloud-development-kit
+grand_parent: aws
 ---
 
 ## AWS CDK v1 vs. V2
