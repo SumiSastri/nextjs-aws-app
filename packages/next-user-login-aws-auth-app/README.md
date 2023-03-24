@@ -99,3 +99,23 @@ There are some conflicts to be resolved with `eslint`
   "extends": ["next/babel"]
 }
 ```
+
+- In root of the next-js app add the Authenticator HOC (see `packages/next-user-login-aws-auth-app/pages/_app.tsx`)
+
+- Wrap the Navbar component and use the `Auth` and `withAuthenticator` methods - add the `handleSignOutSubmit` and check if the signin and signout works as expected - to sign in you need to create your first user with a valid email address. You will get an authentication code which you can use.
+
+- These blogs help you set up the ui in the app
+  - Blog: Dev.to [https://dev.to/codebeast/authentication-in-a-nextjs-app-with-aws-amplify-2057]
+  - React docs [https://ui.docs.amplify.aws/react/connected-components/authenticator]
+
+The higher order component - Authenticator - wraps your component with authentication and auth-routes.
+
+NextJS has a slightly different config (see demo app in this repo)
+
+The Authenticator HoC once set up provides you with an easy way to both create and verify new users in your Cognito user pool.
+
+In this app as we have configured (with the AWS defaults) the Cognito auth to pass only with an email and password a dummy phone number can be provided.
+
+Cognito user pool will register the new user with a unique id.
+
+So Amplify with the CLI easily configures auth and then with the library connects all the Cloud services - Cognito/ AppSync/ DynamoDb - with very little dev effort.

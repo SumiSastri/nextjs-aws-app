@@ -10,6 +10,11 @@
       "StackName": "amplify-nextuserloginawsauth-dev-115515",
       "StackId": "arn:aws:cloudformation:eu-west-2:992722868670:stack/amplify-nextuserloginawsauth-dev-115515/be1deea0-ca3a-11ed-bfcb-068cd9461992",
       "AmplifyAppId": "dm975afs8mf0y"
+    },
+    "categories": {
+      "api": {
+        "nextuserloginawsauth": {}
+      }
     }
   }
 }
