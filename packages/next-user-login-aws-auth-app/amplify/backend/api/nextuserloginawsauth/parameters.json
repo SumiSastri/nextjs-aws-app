@@ -1,6 +1,0 @@
-{
-  "AppSyncApiName": "nextuserloginawsauth",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-12-06T21:06:23.544Z"
-}

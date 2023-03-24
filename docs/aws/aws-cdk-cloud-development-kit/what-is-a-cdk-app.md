@@ -7,8 +7,9 @@ grand_parent: AWS
 
 # What is the AWS CDK
 
-AWS Cloud Development Kit (CDK) is a stack that co-ordinates the lifecycles of nested stacks.
-It ships with methods that enable the app to connect with AWS CloudFormation Stacks.
+AWS Cloud Development Kit (CDK) enables you to write programmatic code for your infrastructure. The CDK generates CloudFormation templates based on your code.
+
+It ships with methods that enable your app to connect with AWS CloudFormation Stacks.
 
 The parent CDK stack has a root construct - or programmatic way of orchestrating the lifecyles of the stacks and resources within it using the command line interface (CLI).
 

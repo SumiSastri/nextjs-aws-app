@@ -1,0 +1,5 @@
+- Infrastructure as code
+- Generates CloudFormation templates based on code
+- Provides support for packaging of NodeJs lambda functions
+- Works well in a monorepo structure
+- Provides pipeline capability for continous delivery

@@ -7,9 +7,7 @@ grand_parent: aws
 
 # What Is An Event Bridge
 
-The AWS EventBridge, available to users since 2019, picks up data one at a time (not in batches) from the event bus and processes multiple events from multiple sources. EventBridge was formerly called Amazon CloudWatch Events. New features added to EventBridge are not added to CloudWatch Events.
-
-The data that is ingested in the event bus of the AWS EventBridge can come from multiple sources - AWS or 3rd party.
+AWS EventBridge picks up data one at a time (not in batches) from the event bus and processes multiple events from multiple sources. The data that is ingested in the event bus of the AWS EventBridge can come from multiple sources - AWS or 3rd party.
 
 The data on the EventBridge can be processed in multiple ways - transferred to AWS Lambdas, AWS Step Functions, a custom event bus and routed through the AWS serverless network/ infrastructure via an AWS Batch or directly to the service (eg. directly to Kinesis).
 
