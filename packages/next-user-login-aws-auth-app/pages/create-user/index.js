@@ -13,22 +13,21 @@ const CreateUser = () => {
 
   const submitNewUserDetails = async (event) => {
     event.preventDefault();
-
-    const currentUser = await Auth.currentAuthenticatedUser();
-    console.log(currentUser, "current user");
+    // const currentUser = await Auth.currentAuthenticatedUser();
+    // console.log(currentUser, "current user");
     try {
       const userPayload = await API.graphql({
         query: createUser,
         variables: {
           input: {
-            id: currentUser.attributes.sub,
+            // id: currentUser.attributes.sub,
             firstName,
             lastName,
             description,
           },
         },
       });
-      console.log(userPayload, "User payload");
+      console.log(userPayload, "SUCCESS: User payload created");
     } catch (error) {
       console.log(error, "Oops - check user payload");
     }

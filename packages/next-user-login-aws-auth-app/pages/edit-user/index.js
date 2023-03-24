@@ -28,13 +28,6 @@ export async function getServerSideProps({ req, res }) {
           error: false,
         },
       };
-    } else {
-      return {
-        props: {
-          mode: "ADD",
-          error: false,
-        },
-      };
     }
   } catch (error) {
     console.log(error, "OOPs! No authenticated user in your response body");
@@ -61,7 +54,7 @@ const EditUser = ({ error, mode, user }) => {
     const currentUser = await Auth.currentAuthenticatedUser();
     event.preventDefault();
     try {
-      const addUser = await API.graphql({
+      const editUser = await API.graphql({
         query: mode === "EDIT" ? updateUser : createUser,
         variables: {
           input: {
@@ -72,10 +65,10 @@ const EditUser = ({ error, mode, user }) => {
           },
         },
       });
-      console.log(addUser, "SUCCESS: user data submitted");
+      console.log(editUser, "SUCCESS: user data editied");
       window.location.heref = "/";
     } catch (error) {
-      console.log(error, "FAIL: user data fail submission");
+      console.log(error, "FAIL: user data not edited");
     }
   };
 
