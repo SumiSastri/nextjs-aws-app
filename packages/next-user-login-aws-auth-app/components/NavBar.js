@@ -41,6 +41,12 @@ const NavBar = () => {
               </Link>
             </li>
 
+            <li className='nav-item'>
+              <Link href='/delete-user' className='nav-link'>
+                Delete User
+              </Link>
+            </li>
+
             <button
               className='btn btn-danger'
               type='button'

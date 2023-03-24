@@ -7,7 +7,7 @@ Amplify is the glue that connects the NextJs front end to the AWS Cloud Services
 - AWS AppSync
 - AWS Cognito User Pools
 
-Amplify needs to be configured in a React-HOC (Higher-Order-Component)
+Amplify needs to be configured in a React-HOC (Higher-Order-Component) to connect the client to the AWS managed cloud servers via Amplify.
 
 ## Repo access
 
@@ -33,11 +33,15 @@ Updating packages `npx npm-check-updates -i '/@?aws-amplify/' && npm update`
 
 If the installation is buggy remove `package-lock.json` and `node_modules` and install and update node packages again
 
-## Front end scripts
+## Frontend scripts
 
-`npm run dev` spins up the app in localhost:3000
+`cd packages/next-user-login-aws-auth-app`
 
-## Useful Amplify commands
+`npm run dev` Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Amplify Scaffodling
+
+For how to set up amplify more in `docs/aws/aws-amplify-serverless/amplify-scaffolding.md`
 
 - `amplify status` for changes
 - `amplify push` deploys changes

@@ -52,9 +52,6 @@ const DeleteUser = ({ error, mode, user }) => {
         variables: {
           input: {
             id: currentUser.attributes.sub,
-            firstName,
-            lastName,
-            description,
           },
         },
       });
