@@ -70,3 +70,6 @@ https://www.youtube.com/watch?v=tt9hws5JGRc
 Graph ql
 https://www.rubrik.com/blog/technology/19/11/graphql-vs-rest-apis
 https://hygraph.com/blog/graphql-vs-rest-apis
+
+AWS Ramp-up guide
+https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Developer.pdf

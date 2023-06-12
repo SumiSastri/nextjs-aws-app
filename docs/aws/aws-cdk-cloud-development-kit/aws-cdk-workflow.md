@@ -7,7 +7,7 @@ grand_parent: aws
 
 # AWS CDK WorkFlow
 
-The workflow is Install -> Configure -> Construct -> Boostrap -> Synthesize -> Deploy -> Destroy
+The workflow is Install -> Configure -> Construct & Validate -> Bootsrap -> Synthesize -> Deploy -> Destroy
 
 ## INSTALL
 

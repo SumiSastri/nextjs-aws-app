@@ -33,3 +33,10 @@ Disadvantages
 
 - Learning curve
 - You need AWS devs
+
+
+Resources:
+
+[Burak blogs](http://buraktas.com/)
+[Lobster](https://lobster1234.github.io/2018/05/31/server-to-server-auth-with-amazon-cognito/)
+[Docs] (https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html)
