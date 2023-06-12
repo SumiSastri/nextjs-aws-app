@@ -6,11 +6,11 @@ The ui-ux makes use of AWS pre-fab login and register components.
 
 This app is a work in progress along with an app using React and  Google Cloud Platform services as I would like to form an opinion and compare/contrast the two serverless options.
 
-This app has 2 repos
+This app has 2 repos:
 
-The aws-cdk-demo app compares server-side REST APIs and deploys to Heroku (note as Heroku has stopped offering a free-tier this can be tested on postman not Heroku)
+1. The aws-cdk-demo app compares server-side REST APIs and deploys to Heroku (note as Heroku has stopped offering a free-tier this can be tested on postman not Heroku).
 
-The next user-login-aws-auth-app with email-password sign-in with email-link auth verification and using cognito-user pools.
+2. The next user-login-aws-auth-app with email-password sign-in with email-link auth verification and using cognito-user pools. (work-in-progress)
 
 My initial impressions of AWS are
 
@@ -19,5 +19,3 @@ My initial impressions of AWS are
 3. Authentication is more difficult to set up with Cognito User pools compared with Google (Firebase) but feels more secure (impression not evidence based)
 4. Programmatic image uploads with S3 and AWS CDK seemed much easier than with Google (Firestore)
 5. Very complex infra - the learning process is overwhelming - not a great developer experience
-
-Docs folder is a work-in-progress as I plan to improve the logged-in section of the app.

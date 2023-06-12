@@ -1,3 +1,10 @@
+---
+layout: default
+title: caffolding
+parent: Serverless
+---
+
+
 # Scaffolding
 
 ## next-user-login-aws app
@@ -12,7 +19,7 @@ See blog Handling Bootstrap with Nextjs[https://blog.logrocket.com/handling-boot
 
 There are some conflicts to be resolved with `eslint`
 
-```
+```JavaScript
 // Create a .babelrc in your root folder adding this
 {
   "presets": ["next/babel"],
