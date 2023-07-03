@@ -4,13 +4,14 @@ import { App, Tags, aws_s3 as s3 } from "aws-cdk-lib";
 import { AwsCdkDemoAppStack } from "../lib/aws-cdk-demo-app-stack";
 
 const app = new App();
+
 const stack = new AwsCdkDemoAppStack(app, "AwsCdkDemoAppStack");
 Tags.of(stack).add("App", "MusicAssetManagement");
 Tags.of(stack).add("Environment", "Development");
 // As Networking is already a construct see lib stack file
-// Tags.of(stack).add('Module', 'Networking', {
-// // exclude or include resource types
-// })
+Tags.of(stack).add("Module", "Networking", {
+  // exclude or include resource types
+});
 app.synth();
 {
   /* If you don't specify 'env', this stack will be environment-agnostic.

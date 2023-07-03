@@ -21,10 +21,20 @@ The document management app configures resources with the AWS CDK CLI (Command L
 Check versions of node, npm, cdk, aws, docker and sam, if you do not have this installed then follow instructions to install
 
 `node --version` check NodeJs v14 or higher or [install](https://nodejs.org/en/download/)
+`Node 18.16.1`
+
 `npm --version` check Npm - v7 or higher or [install](https://www.npmjs.com/package/npm)
+`npm 9.5.1`
+
 `cdk --version` check AWS CDK installed if not global install the aws-cdk - in terminal run: `npm install aws-cdk -g`
-`aws --version` check AWS CLI v2 or [install]9https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html)
+`2.85.0 (build 4e0d726)`
+
+`aws --version` check AWS CLI v2 or [install]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html)
+`aws-cli/2.8.13 Python/3.9.11 Darwin/21.6.0 exe/x86_64 prompt/off`
+
 `docker --version` or [install](https://docs.docker.com/desktop/install/mac-install/)
+`Docker version 20.10.23, build 7155243`
+
 `sam --version` or [install](https://aws.amazon.com/serverless/sam/)
 
 - This PoC uses `npm` as a package manager and `lerna` as the monorepo package manager
@@ -75,6 +85,13 @@ exit vim `:wqa`
 
 6. You can bootstrap the app to whatever backend service you have chosen - in this app it is CloudFormation
 
-7. Once bootstrapped, you can deploy the app - check it works on  Postman: [https://l99l6wyw28.execute-api.eu-west-2.amazonaws.com/getMusicAssets] as it is a simple HTTPS call
+7. Once bootstrapped, you can deploy the app - check it works on  Postman: 
+
+[https://l99l6wyw28.execute-api.eu-west-2.amazonaws.com/getMusicAssets] as it is a simple HTTPS get request you should see the the docs
 
 8. Destroy the build process.
+
+
+To do:
+Add Winston
+Check the api gateway installation
