@@ -5,8 +5,8 @@ import * as lambda from "aws-cdk-lib/aws-lambda-nodejs";
 import { aws_s3 as s3 } from "aws-cdk-lib";
 import * as path from "path";
 import * as iam from "aws-cdk-lib/aws-iam";
-import * as apig from "@aws-cdk-ListTodosQueryVariables";
-import * as apiIntegration from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
+// import * as apig from "@aws-cdk-ListTodosQueryVariables";
+// import * as apiIntegration from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
 
 interface MusicAssetsAPIProps {
   musicAssetsBucketProps: s3.IBucket;

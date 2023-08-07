@@ -1,8 +1,12 @@
 # What is AWS AppSync
 
-AppSync is an API interface that allows you to query data using the GraphQL query language as well as REST API calls. In the configuration you can choose which query option you require either GraphQL or REST.
+AWS-AppSync is a data-synchronisation service from Amazaon, that allows you to create a flexible API interface. AppSync can be used for both GraphQL and REST APIs. In the configuration you can choose which query option you require either GraphQL or REST.
 
-AppSync is an AWS product that quickly syncs data sent from the frontend (app) to the backend (data stores).
+AppSync quickly syncs data sent from the frontend (app) to the backend (data stores). Once the API interface is created, developers can securely access, edit, manipulate, and combine data from one or more data sources. For example, if you have a document-based database and a relational database, they follow different data storage patterns.
+
+AppSync allows you to access both of these databases and combine the result into data that you can now use for your application. This secure manipulation of data makes the data more malleable and fit for the usecase you require.
+
+AppSync allows you to subscribe to data changes and authenticate users in combination with Amazon-Cognito an AWS authentication service.
 
 <img src="docs/assets/nextJs-auth-architecture.png" alt="NextJs and AWS Authorisation App Architecture Diagram" height="350"/>
 
@@ -10,7 +14,7 @@ In this architecture diagram, see how AppSync is an additional layer between Amp
 
 In an integration environment the frontend data can be streamed into various channels where APIs are called - a database/ an email marketing service/ a fulfilment warehouse management system/ a call center/ a customer-relationship-management service.
 
-Instead of querying this data directly, using AppSync there is another layer of security introduced.
+Instead of querying this data directly, using AppSync there is an other layer of security introduced.
 
 See architecture diagram on the AWS docs [https://aws.amazon.com/appsync/]
 
